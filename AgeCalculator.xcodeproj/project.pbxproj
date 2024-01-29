@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1B92B682F1F0080707F /* RetroView.swift */; };
+		A7E8D1C32B6864B10080707F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C22B6864B10080707F /* HomeViewModel.swift */; };
+		A7E8D1C52B686A390080707F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C42B686A390080707F /* Colors.swift */; };
 		A7EFE43C2B5D869A00D13B53 /* AgeCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */; };
-		A7EFE43E2B5D869A00D13B53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE43D2B5D869A00D13B53 /* ContentView.swift */; };
+		A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE43D2B5D869A00D13B53 /* HomeView.swift */; };
 		A7EFE4402B5D869B00D13B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7EFE43F2B5D869B00D13B53 /* Assets.xcassets */; };
 		A7EFE4432B5D869B00D13B53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7EFE4422B5D869B00D13B53 /* Preview Assets.xcassets */; };
 		A7EFE44D2B5D869B00D13B53 /* AgeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE44C2B5D869B00D13B53 /* AgeCalculatorTests.swift */; };
@@ -34,9 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7E8D1B92B682F1F0080707F /* RetroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroView.swift; sourceTree = "<group>"; };
+		A7E8D1C22B6864B10080707F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A7E8D1C42B686A390080707F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A7EFE4382B5D869A00D13B53 /* AgeCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgeCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCalculatorApp.swift; sourceTree = "<group>"; };
-		A7EFE43D2B5D869A00D13B53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A7EFE43D2B5D869A00D13B53 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A7EFE43F2B5D869B00D13B53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7EFE4422B5D869B00D13B53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7EFE4482B5D869B00D13B53 /* AgeCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgeCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7E8D1BB2B6863690080707F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A7E8D1BC2B6863710080707F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A7E8D1C12B6863CD0080707F /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A7E8D1BD2B68637D0080707F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7E8D1B92B682F1F0080707F /* RetroView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7E8D1BE2B6863890080707F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A7E8D1C02B6863C40080707F /* Models */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A7E8D1BF2B68639A0080707F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7EFE43F2B5D869B00D13B53 /* Assets.xcassets */,
+				A7E8D1C42B686A390080707F /* Colors.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7E8D1C02B6863C40080707F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7E8D1C12B6863CD0080707F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A7EFE43D2B5D869A00D13B53 /* HomeView.swift */,
+				A7E8D1C22B6864B10080707F /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		A7EFE42F2B5D869A00D13B53 = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +157,11 @@
 		A7EFE43A2B5D869A00D13B53 /* AgeCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */,
-				A7EFE43D2B5D869A00D13B53 /* ContentView.swift */,
-				A7EFE43F2B5D869B00D13B53 /* Assets.xcassets */,
+				A7E8D1BB2B6863690080707F /* App */,
+				A7E8D1BC2B6863710080707F /* Features */,
+				A7E8D1BD2B68637D0080707F /* Views */,
+				A7E8D1BE2B6863890080707F /* Utils */,
+				A7E8D1BF2B68639A0080707F /* Resources */,
 				A7EFE4412B5D869B00D13B53 /* Preview Content */,
 			);
 			path = AgeCalculator;
@@ -257,8 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7EFE43E2B5D869A00D13B53 /* ContentView.swift in Sources */,
+				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
+				A7E8D1C52B686A390080707F /* Colors.swift in Sources */,
+				A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */,
 				A7EFE43C2B5D869A00D13B53 /* AgeCalculatorApp.swift in Sources */,
+				A7E8D1C32B6864B10080707F /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
