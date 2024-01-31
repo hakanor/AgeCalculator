@@ -15,23 +15,22 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack {
-                RetroView(text: "Profile", action: {})
-                    .frame(width: 50, height: 50)
+                RetroView(type: .text("Profile"), size: 20, action: {})
+                    .fixedSize()
                 Spacer()
-                
-                RetroView(text: "Settings", action: {})
-                    .frame(width: 50, height: 50)
+                RetroView(type: .image("gearshape.fill"), size: 20, action: {})
+                    .fixedSize()
             }
             .padding()
             Spacer()
             HStack {
-                Text("Your age:")
+                Text("Age:")
                     .font(.system(size: 24, weight: .semibold, design: .monospaced))
                     .colorMultiply(.black)
                     .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
                 Spacer()
             }
-            RetroView(text: "\(viewModel.ageFormatter.string(from: NSNumber(value: age))!)", action: {})
+            RetroView(type: .text( "\(viewModel.ageFormatter.string(from: NSNumber(value: age))!)"), action: {})
                 .contentTransition(.numericText(value: age))
                 .font(.largeTitle)
                 .bold()
@@ -41,7 +40,7 @@ struct HomeView: View {
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
                         withAnimation {
-                            self.age = viewModel.calculateAge(from: viewModel.birthDate) 
+                            self.age = viewModel.calculateAge(from: viewModel.birthDate)
                         }
                     }
                 }
