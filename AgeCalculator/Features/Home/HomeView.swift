@@ -18,7 +18,7 @@ struct HomeView: View {
                 RetroView(type: .text("Profile"), size: 20, action: {})
                     .fixedSize()
                 Spacer()
-                RetroView(type: .text("Settings"), size: 20, action: {})
+                RetroView(type: .image("gearshape.fill"), size: 20, action: {})
                     .fixedSize()
             }
             .padding()
@@ -40,7 +40,7 @@ struct HomeView: View {
                 .onAppear {
                     Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
                         withAnimation {
-                            self.age = viewModel.calculateAge(from: viewModel.birthDate) 
+                            self.age = viewModel.calculateAge(from: viewModel.birthDate)
                         }
                     }
                 }
