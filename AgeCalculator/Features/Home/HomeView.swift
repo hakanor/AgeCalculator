@@ -12,9 +12,18 @@ struct HomeView: View {
     
     @State var age: Double = 0
     let timerInterval = 1.0
-    
     var body: some View {
         VStack {
+            HStack {
+                RetroView(text: "Profile", action: {})
+                    .frame(width: 50, height: 50)
+                Spacer()
+                
+                RetroView(text: "Settings", action: {})
+                    .frame(width: 50, height: 50)
+            }
+            .padding()
+            Spacer()
             HStack {
                 Text("Your age:")
                     .font(.system(size: 24, weight: .semibold, design: .monospaced))
@@ -36,6 +45,7 @@ struct HomeView: View {
                         }
                     }
                 }
+            Spacer()
         }
         .padding()
     }

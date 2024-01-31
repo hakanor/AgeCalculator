@@ -7,7 +7,6 @@ struct RetroView: View {
     var body: some View {
         ZStack(alignment: .leading) {
             ZStack {
-                //Color(ThemeColors.labelColor)
                 RoundedRectangle(cornerRadius: 8)
                     .offset(x: 4, y: 5)
                 
@@ -22,6 +21,8 @@ struct RetroView: View {
                             .bold()
                     }
                 }
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
             }
         }
     }
