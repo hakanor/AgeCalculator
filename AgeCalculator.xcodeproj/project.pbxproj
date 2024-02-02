@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17A92B6C071C00B11946 /* DetailView.swift */; };
+		A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */; };
 		A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1B92B682F1F0080707F /* RetroView.swift */; };
 		A7E8D1C32B6864B10080707F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C22B6864B10080707F /* HomeViewModel.swift */; };
 		A7E8D1C52B686A390080707F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C42B686A390080707F /* Colors.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7DD17A92B6C071C00B11946 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A7E8D1B92B682F1F0080707F /* RetroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroView.swift; sourceTree = "<group>"; };
 		A7E8D1C22B6864B10080707F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A7E8D1C42B686A390080707F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7DD17A82B6C070D00B11946 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A7DD17A92B6C071C00B11946 /* DetailView.swift */,
+				A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		A7E8D1BB2B6863690080707F /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 			children = (
 				A7E8D1BB2B6863690080707F /* App */,
 				A7E8D1BC2B6863710080707F /* Features */,
+				A7DD17A82B6C070D00B11946 /* Detail */,
 				A7E8D1BD2B68637D0080707F /* Views */,
 				A7E8D1BE2B6863890080707F /* Utils */,
 				A7E8D1BF2B68639A0080707F /* Resources */,
@@ -323,6 +337,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
+				A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */,
+				A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */,
 				A7E8D1C52B686A390080707F /* Colors.swift in Sources */,
 				A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */,
 				A7EFE43C2B5D869A00D13B53 /* AgeCalculatorApp.swift in Sources */,

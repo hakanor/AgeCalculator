@@ -5,13 +5,25 @@
 //  Created by Hakan Or on 30.01.2024.
 //
 
-import Foundation
+import SwiftUI
 
 class HomeViewModel: ObservableObject {
+
+    @Published var age: Double = 0
     
     var birthDate = ISO8601DateFormatter().date(from: "1999-01-20T19:20:46+0000")!
+    let timerInterval = 1.0
     
     init() {
+        startTimer()
+    }
+    
+    public func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
+            withAnimation {
+                self.age = self.calculateAge(from: self.birthDate)
+            }
+        }
     }
     
     public func calculateAge(from birthDate: Date) -> Double {
@@ -20,10 +32,7 @@ class HomeViewModel: ObservableObject {
         return timeDifference / 31556926
     }
     
-    var ageFormatter: NumberFormatter = {
-          var formatter = NumberFormatter()
-          formatter.numberStyle = .decimal
-          formatter.minimumFractionDigits = 7
-          return formatter
-      }()
+    func formatAge(_ number: Double) -> String {
+        return String(format: "%.7f", number)
+    }
 }
