@@ -5,12 +5,16 @@ enum RetroViewType {
     case image(String)
 }
 
+struct RetroButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 struct RetroView: View {
     var type: RetroViewType
     var size: CGFloat = 30
-    var action: () -> Void
-    
-    @State private var isTapped = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -33,7 +37,6 @@ struct RetroView: View {
                         Text(string)
                             .font(.system(size: size, weight: .semibold, design: .monospaced))
                             .colorMultiply(ThemeColors.labelColor)
-                            .opacity(isTapped ? 0.4 : 1)
                             .bold()
                     case .image(let string):
                         Image(systemName: string)
@@ -44,21 +47,13 @@ struct RetroView: View {
                 .padding(10)
                 
             }
-            .scaleEffect(isTapped ? 1.05 : 1)
-            .onTapGesture {
-                withAnimation {
-                    isTapped.toggle()
-                    action()
-                }
-                isTapped.toggle()
-            }
         }
     }
 }
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        RetroView(type: .text("Test"), action: {})
+        RetroView(type: .text("Test"))
             .fixedSize(horizontal: false, vertical: true)
             .padding(24)
     }
