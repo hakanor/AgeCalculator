@@ -8,11 +8,65 @@
 import SwiftUI
 
 struct RetroArrowView: View {
+    var size: CGSize
+    var color: Color
+    var offsetx: Double = 1.0
+    var offsety: Double = 2.0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // Arrow Shape
+            GeometryReader { geometry in
+                Path { path in
+                    let width = geometry.size.width
+                    let height = geometry.size.height
+                    
+                    path.move(to: CGPoint(x: width * 0.8, y: height * 0.5))
+                    path.addLine(to: CGPoint(x: width * 0.2, y: height * 0.5))
+                    path.addLine(to: CGPoint(x: width * 0.4, y: height * 0.3))
+                    path.move(to: CGPoint(x: width * 0.2, y: height * 0.5))
+                    path.addLine(to: CGPoint(x: width * 0.4, y: height * 0.7))
+                }
+                .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
+            }
+            
+            GeometryReader { geometry in
+                Path { path in
+                    let width = geometry.size.width
+                    let height = geometry.size.height
+                    
+                    path.move(to: CGPoint(x: width * 0.8 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.2 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.3 - offsety))
+                    path.move(to: CGPoint(x: width * 0.2 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
+                }
+                .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                .foregroundColor(.black)
+            }
+            
+            GeometryReader { geometry in
+                Path { path in
+                    let width = geometry.size.width
+                    let height = geometry.size.height
+                    
+                    path.move(to: CGPoint(x: width * 0.8 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.2 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.3 - offsety))
+                    path.move(to: CGPoint(x: width * 0.2 - offsetx, y: height * 0.5 - offsety))
+                    path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
+                }
+                .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                .foregroundColor(ThemeColors.backgroundColor)
+            }
+        }
+        .frame(width: size.width, height: size.height)
+        .foregroundColor(.black)
     }
 }
 
-#Preview {
-    RetroArrowView()
+struct TestArrowView_Previews: PreviewProvider {
+    static var previews: some View {
+        RetroArrowView(size: CGSize(width: 30, height: 30), color: .gray)
+    }
 }
