@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843822B6E6E6600401053 /* RetroArrowView.swift */; };
 		A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17A92B6C071C00B11946 /* DetailView.swift */; };
 		A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */; };
 		A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1B92B682F1F0080707F /* RetroView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7C843822B6E6E6600401053 /* RetroArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroArrowView.swift; sourceTree = "<group>"; };
 		A7DD17A92B6C071C00B11946 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A7E8D1B92B682F1F0080707F /* RetroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A7E8D1B92B682F1F0080707F /* RetroView.swift */,
+				A7C843822B6E6E6600401053 /* RetroArrowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
+				A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */,
 				A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */,
 				A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */,
 				A7E8D1C52B686A390080707F /* Colors.swift in Sources */,
@@ -519,7 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hakanor.AgeCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -548,7 +552,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hakanor.AgeCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
