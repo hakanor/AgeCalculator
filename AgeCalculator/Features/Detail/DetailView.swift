@@ -34,14 +34,15 @@ struct DetailView: View {
                             .padding()
                         }
                     } else { // Ekran dikey ise
-                        ScrollView(.horizontal) {
+                        ScrollView(.vertical) {
                             HStack(spacing: 16) {
                                 ForEach(viewModel.ageInfoDetail, id: \.self.0) { detail in
-                                    VStack {
+                                    VStack(alignment: .leading) {
                                         Text(detail.0)
                                             .font(.system(size: 20, weight: .semibold, design: .monospaced))
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                        RetroView(type: .text(detail.1.description.groupDigits()), size: 16)
+                                        Spacer()
+                                        RetroView(type: .text(detail.1.groupDigits()), size: 16)
                                             .contentTransition(.numericText(value: Double(detail.1) ?? 0.0))
                                             .fixedSize()
                                     }

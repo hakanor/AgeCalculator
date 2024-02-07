@@ -43,7 +43,7 @@ struct HomeView: View {
                     DetailView()
                 } label: {
                     RetroView(type: .text("\(viewModel.ageInfo.fractionalAge)"))
-                        .contentTransition(.numericText(value: Double(viewModel.ageInfo.seconds)))
+                        .contentTransition(.numericText(value: Double(viewModel.ageInfo.fractionalAge) ?? 0))
                         .padding()
                         .frame(height: 100)
                 }
