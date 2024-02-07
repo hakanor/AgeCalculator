@@ -19,13 +19,13 @@ struct DetailView: View {
                     if geometry.size.width < geometry.size.height {
                         ScrollView {
                             VStack(alignment: .leading, spacing: 16) {
-                                ForEach(viewModel.details, id: \.self.0) { detail in
+                                ForEach(viewModel.ageInfoDetail, id: \.self.0) { detail in
                                     HStack {
                                         Text(detail.0)
                                             .font(.system(size: 20, weight: .semibold, design: .monospaced))
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                         Spacer()
-                                        RetroView(type: .text(detail.1), size: 16)
+                                        RetroView(type: .text(detail.1.groupDigits()), size: 16)
                                             .contentTransition(.numericText(value: Double(detail.1) ?? 0.0))
                                             .fixedSize()
                                     }
@@ -36,12 +36,12 @@ struct DetailView: View {
                     } else { // Ekran dikey ise
                         ScrollView(.horizontal) {
                             HStack(spacing: 16) {
-                                ForEach(viewModel.details, id: \.self.0) { detail in
+                                ForEach(viewModel.ageInfoDetail, id: \.self.0) { detail in
                                     VStack {
                                         Text(detail.0)
                                             .font(.system(size: 20, weight: .semibold, design: .monospaced))
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                        RetroView(type: .text(detail.1), size: 16)
+                                        RetroView(type: .text(detail.1.description.groupDigits()), size: 16)
                                             .contentTransition(.numericText(value: Double(detail.1) ?? 0.0))
                                             .fixedSize()
                                     }
@@ -53,9 +53,9 @@ struct DetailView: View {
                 }
                 Text("Days Until")
                     .font(.system(size: 20, weight: .semibold, design: .monospaced))
-                RetroView(type: .text(String(viewModel.daysUntilNextBirthday)), size: 20)
+                RetroView(type: .text(String(viewModel.ageInfo.daysUntilNextBirthday)), size: 20)
                     .fixedSize()
-                    .contentTransition(.numericText(value: Double(viewModel.daysUntilNextBirthday)))
+                    .contentTransition(.numericText(value: Double(viewModel.ageInfo.daysUntilNextBirthday)))
                 Text("to next birthday")
                     .font(.system(size: 20, weight: .semibold, design: .monospaced))
                 Spacer()
@@ -76,5 +76,3 @@ struct DetailView_Previews: PreviewProvider {
         DetailView()
     }
 }
-
-

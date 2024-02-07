@@ -6,33 +6,24 @@
 //
 
 import SwiftUI
+import Combine
 
 class HomeViewModel: ObservableObject {
-
-    @Published var age: Double = 0
     
-    var birthDate = ISO8601DateFormatter().date(from: "1999-01-20T19:20:46+0000")!
-    let timerInterval = 1.0
+    @Published var ageInfo: AgeInfo = AgeInfo(fractionalAge:"", years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, daysUntilNextBirthday: 0)
+    private var ageService = AgeService.shared
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        startTimer()
-    }
-    
-    public func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-            withAnimation {
-                self.age = self.calculateAge(from: self.birthDate)
-            }
+        withAnimation {
+            self.ageService.$ageInfo
+                .sink { [weak self] ageInfo in
+                    guard let self = self else { return }
+                    withAnimation {
+                        self.ageInfo = ageInfo
+                    }
+                }
+                .store(in: &cancellables)
         }
-    }
-    
-    public func calculateAge(from birthDate: Date) -> Double {
-        let currentTime = Date()
-        let timeDifference = currentTime.timeIntervalSince(birthDate)
-        return timeDifference / 31556926
-    }
-    
-    func formatAge(_ number: Double) -> String {
-        return String(format: "%.7f", number)
     }
 }

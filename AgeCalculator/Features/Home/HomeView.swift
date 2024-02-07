@@ -42,13 +42,10 @@ struct HomeView: View {
                 NavigationLink {
                     DetailView()
                 } label: {
-                    RetroView(type: .text(viewModel.formatAge(viewModel.age)))
-                        .contentTransition(.numericText(value: viewModel.age))
+                    RetroView(type: .text("\(viewModel.ageInfo.fractionalAge)"))
+                        .contentTransition(.numericText(value: Double(viewModel.ageInfo.seconds)))
                         .padding()
                         .frame(height: 100)
-                        .onAppear {
-                            viewModel.startTimer()
-                        }
                 }
                 .buttonStyle(RetroButtonStyle())
                 Spacer()

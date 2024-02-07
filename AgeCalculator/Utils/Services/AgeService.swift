@@ -1,41 +1,33 @@
 //
-//  DetailViewModel.swift
+//  AgeService.swift
 //  AgeCalculator
 //
-//  Created by Hakan Or on 1.02.2024.
+//  Created by Hakan Or on 3.02.2024.
 //
 
-import SwiftUI
+import Foundation
 
-class DetailViewModel: ObservableObject {
+class AgeService {
+    static let shared = AgeService()
     
-    @Published var details: [(String, String)] = [
-        ("Total Years:", "Years"),
-        ("Total Months:", "Months"),
-        ("Total Days:", "Days"),
-        ("Total Hours:", "Hours"),
-        ("Total Minutes:", "Minutes"),
-        ("Total Seconds:", "Seconds")
-    ]
-    @Published var daysUntilNextBirthday: Int = 0
-    @Published var test: Double = 0
+    private var birthDate: Date
+    private var timer: Timer?
     
-    let timerInterval = 1.0
-    var birthDate = ISO8601DateFormatter().date(from: "1999-01-20T19:20:46+0000")!
+    @Published var ageInfo: AgeInfo = AgeInfo(fractionalAge: "", years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, daysUntilNextBirthday: 0)
     
-    init() {
+    private init() {
+        self.birthDate = ISO8601DateFormatter().date(from: "1999-01-20T19:20:46+0000")!
         startTimer()
     }
     
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-            withAnimation {
-                self.calculateDetails()
-            }
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.calculateDetails()
         }
     }
     
-    func calculateDetails() {
+    private func calculateDetails() {
         let calendar = Calendar.current
         let now = Date()
         
@@ -46,25 +38,18 @@ class DetailViewModel: ObservableObject {
         let minutes = calendar.dateComponents([.minute], from: birthDate, to: now).minute ?? 0
         let seconds = calendar.dateComponents([.second], from: birthDate, to: now).second ?? 0
         
-        daysUntilNextBirthday = daysUntilNextBirthday(birthday: birthDate)
+        let daysUntilNextBirthday = self.daysUntilNextBirthday(birthday: birthDate)
         
-        details[0].1 = "\(years)"
-        details[1].1 = "\(months)"
-        details[2].1 = "\(days)"
-        details[3].1 = "\(hours)"
-        details[4].1 = "\(minutes)"
-        details[5].1 = "\(seconds)"
+        self.ageInfo = AgeInfo(fractionalAge: "\(Double(seconds) / 31556926)", years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds, daysUntilNextBirthday: daysUntilNextBirthday)
     }
     
-    func daysUntilNextBirthday(birthday: Date) -> Int {
+    private func daysUntilNextBirthday(birthday: Date) -> Int {
         let today = Date()
         let calendar = Calendar.current
         
-        // this year's birthday date
         var nextBirthdayComponents = calendar.dateComponents([.month, .day, .year], from: today)
         let birthComponents = calendar.dateComponents([.month, .day], from: birthday)
         
-        // next year's birthday date
         if let nextBirthdayDate = calendar.date(from: nextBirthdayComponents),
            nextBirthdayDate <= today {
             nextBirthdayComponents.year = (nextBirthdayComponents.year ?? 0) + 1
@@ -73,12 +58,10 @@ class DetailViewModel: ObservableObject {
         nextBirthdayComponents.month = birthComponents.month
         nextBirthdayComponents.day = birthComponents.day
         
-        // nextBirthdayDate
         guard let nextBirthdayDate = calendar.date(from: nextBirthdayComponents) else {
             return 0
         }
         
-        // difference between today - nextBirthdayDate
         let difference = calendar.dateComponents([.day], from: today, to: nextBirthdayDate)
         return difference.day ?? 0
     }
