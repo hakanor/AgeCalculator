@@ -12,45 +12,60 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                HStack {
-                    NavigationLink {
-                        DetailView()
-                    } label: {
-                        RetroView(type: .text("Profile"), size: 20)
-                            .fixedSize()
+        GeometryReader { geometry in
+            if geometry.size.width < geometry.size.height { // dikey
+                NavigationView {
+                    VStack {
+                        HStack {
+                            NavigationLink {
+                                DetailView()
+                            } label: {
+                                RetroView(type: .text("Profile"), size: 20)
+                                    .fixedSize()
+                            }
+                            .buttonStyle(RetroButtonStyle())
+                            Spacer()
+                            NavigationLink {
+                                DetailView()
+                            } label: {
+                                RetroView(type: .image("gearshape.fill"), size: 20)
+                                    .fixedSize()
+                            }
+                            .buttonStyle(RetroButtonStyle())
+                        }
+                        .padding()
+                        Spacer()
+                        HStack {
+                            Text("Age:")
+                                .font(.system(size: 24, weight: .semibold, design: .monospaced))
+                                .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
+                            Spacer()
+                        }
+                        NavigationLink {
+                            DetailView()
+                        } label: {
+                            RetroView(type: .text("\(viewModel.ageInfo.fractionalAge)"))
+                                .contentTransition(.numericText(value: Double(viewModel.ageInfo.fractionalAge) ?? 0))
+                                .padding()
+                                .frame(height: 100)
+                        }
+                        .buttonStyle(RetroButtonStyle())
+                        Spacer()
                     }
-                    .buttonStyle(RetroButtonStyle())
-                    Spacer()
-                    NavigationLink {
-                        DetailView()
-                    } label: {
-                        RetroView(type: .image("gearshape.fill"), size: 20)
-                            .fixedSize()
-                    }
-                    .buttonStyle(RetroButtonStyle())
+                    .padding()
                 }
-                .padding()
-                Spacer()
-                HStack {
-                    Text("Age:")
-                        .font(.system(size: 24, weight: .semibold, design: .monospaced))
-                        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
+            } else { // yatay
+                VStack() {
                     Spacer()
-                }
-                NavigationLink {
-                    DetailView()
-                } label: {
-                    RetroView(type: .text("\(viewModel.ageInfo.fractionalAge)"))
+                    RetroView(type: .text("\(viewModel.ageInfo.fractionalAge)"),
+                    size: 60)
                         .contentTransition(.numericText(value: Double(viewModel.ageInfo.fractionalAge) ?? 0))
                         .padding()
-                        .frame(height: 100)
+                        .fixedSize()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Spacer()
                 }
-                .buttonStyle(RetroButtonStyle())
-                Spacer()
             }
-            .padding()
         }
     }
 }
