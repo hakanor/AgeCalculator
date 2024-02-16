@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A75867AC2B752606009A3F6B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75867AB2B752606009A3F6B /* BottomSheetView.swift */; };
+		A75867AE2B754F26009A3F6B /* BirthDateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75867AD2B754F26009A3F6B /* BirthDateService.swift */; };
 		A794D6722B74217A0025B598 /* String+GroupDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794D6712B74217A0025B598 /* String+GroupDigits.swift */; };
 		A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843822B6E6E6600401053 /* RetroArrowView.swift */; };
 		A7C843862B6EB1B800401053 /* AgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843852B6EB1B800401053 /* AgeService.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A75867AB2B752606009A3F6B /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		A75867AD2B754F26009A3F6B /* BirthDateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateService.swift; sourceTree = "<group>"; };
 		A794D6712B74217A0025B598 /* String+GroupDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GroupDigits.swift"; sourceTree = "<group>"; };
 		A7C843822B6E6E6600401053 /* RetroArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroArrowView.swift; sourceTree = "<group>"; };
 		A7C843852B6EB1B800401053 /* AgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeService.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C843852B6EB1B800401053 /* AgeService.swift */,
+				A75867AD2B754F26009A3F6B /* BirthDateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			children = (
 				A7E8D1B92B682F1F0080707F /* RetroView.swift */,
 				A7C843822B6E6E6600401053 /* RetroArrowView.swift */,
+				A75867AB2B752606009A3F6B /* BottomSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,10 +371,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
+				A75867AE2B754F26009A3F6B /* BirthDateService.swift in Sources */,
 				A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */,
 				A794D6722B74217A0025B598 /* String+GroupDigits.swift in Sources */,
 				A7C843862B6EB1B800401053 /* AgeService.swift in Sources */,
 				A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */,
+				A75867AC2B752606009A3F6B /* BottomSheetView.swift in Sources */,
 				A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */,
 				A7E8D1C52B686A390080707F /* Colors.swift in Sources */,
 				A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */,

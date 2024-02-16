@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
+    @State var showingBottomSheet = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,13 +18,19 @@ struct HomeView: View {
                 NavigationView {
                     VStack {
                         HStack {
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                RetroView(type: .text("Profile"), size: 20)
-                                    .fixedSize()
+                            VStack {
+                                Button(action: {
+                                    showingBottomSheet.toggle()
+                                }, label: {
+                                    RetroView(type: .text("Profile"), size: 20)
+                                        .fixedSize()
+                                })
+                                .buttonStyle(RetroButtonStyle())
                             }
-                            .buttonStyle(RetroButtonStyle())
+                            .sheet(isPresented: $showingBottomSheet) {
+                                BottomSheetView()
+                                    .presentationDetents([.medium])
+                            }
                             Spacer()
                             NavigationLink {
                                 DetailView()

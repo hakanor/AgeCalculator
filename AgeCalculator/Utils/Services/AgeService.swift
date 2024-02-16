@@ -10,13 +10,11 @@ import Foundation
 class AgeService {
     static let shared = AgeService()
     
-    private var birthDate: Date
     private var timer: Timer?
     
     @Published var ageInfo: AgeInfo = AgeInfo(fractionalAge: "", years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, daysUntilNextBirthday: 0)
     
     private init() {
-        self.birthDate = ISO8601DateFormatter().date(from: "1999-01-20T19:20:46+0000")!
         startTimer()
     }
     
@@ -28,17 +26,27 @@ class AgeService {
     }
     
     private func calculateDetails() {
+        guard let lastBirthDate = BirthDateService.shared.selectedBirthDate else {
+            return
+        }
+        
         let calendar = Calendar.current
         let now = Date()
         
-        let years = calendar.dateComponents([.year], from: birthDate, to: now).year ?? 0
-        let months = calendar.dateComponents([.month], from: birthDate, to: now).month ?? 0
-        let days = calendar.dateComponents([.day], from: birthDate, to: now).day ?? 0
-        let hours = calendar.dateComponents([.hour], from: birthDate, to: now).hour ?? 0
-        let minutes = calendar.dateComponents([.minute], from: birthDate, to: now).minute ?? 0
-        let seconds = calendar.dateComponents([.second], from: birthDate, to: now).second ?? 0
+        let years = calendar.dateComponents([.year], from: lastBirthDate, to: now).year ?? 0
+        let months = calendar.dateComponents([.month], from: lastBirthDate, to: now).month ?? 0
+        let days = calendar.dateComponents([.day], from: lastBirthDate, to: now).day ?? 0
+        let hours = calendar.dateComponents([.hour], from: lastBirthDate, to: now).hour ?? 0
+        let minutes = calendar.dateComponents([.minute], from: lastBirthDate, to: now).minute ?? 0
+        let seconds = calendar.dateComponents([.second], from: lastBirthDate, to: now).second ?? 0
         
-        let daysUntilNextBirthday = self.daysUntilNextBirthday(birthday: birthDate)
+        let daysUntilNextBirthday = BirthDateService.shared.birthDates.reduce(Int.max) { result, birthDate in
+            let days = self.daysUntilNextBirthday(birthday: birthDate ?? Date())
+            return min(result, days)
+        }
+        
+        guard let selectedBirthDate = BirthDateService.shared.selectedBirthDate else { return }
+        let daysUntilNextBirthDay = self.daysUntilNextBirthday(birthday: selectedBirthDate)
         
         self.ageInfo = AgeInfo(fractionalAge: "\(Double(seconds) / 31556926)", years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds, daysUntilNextBirthday: daysUntilNextBirthday)
     }
