@@ -34,20 +34,22 @@ struct BottomSheetView: View {
             .padding()
         }
         .sheet(isPresented: $isAddDateSheetPresented, content: {
-            AddDateView(isPresented: $isAddDateSheetPresented, birthDates: $birthDates)
+            AddDateView(isPresented: $isAddDateSheetPresented)
         })
         .onAppear {
             loadBirthDates()
         }
     }
     private func loadBirthDates() {
-        birthDates = BirthDateService.shared.birthDates
+        let birthDateObjects = BirthDateService.shared.birthDates
+        for birthDate in birthDateObjects {
+            self.birthDates.append(birthDate.birthDate)
+        }
     }
 }
 
 struct AddDateView: View {
     @Binding var isPresented: Bool
-    @Binding var birthDates: [Date]
     @State private var selectedDate = Date()
     
     var body: some View {

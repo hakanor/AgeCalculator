@@ -41,7 +41,7 @@ class AgeService {
         let seconds = calendar.dateComponents([.second], from: lastBirthDate, to: now).second ?? 0
         
         let daysUntilNextBirthday = BirthDateService.shared.birthDates.reduce(Int.max) { result, birthDate in
-            let days = self.daysUntilNextBirthday(birthday: birthDate ?? Date())
+            let days = self.daysUntilNextBirthday(birthday: birthDate.birthDate)
             return min(result, days)
         }
         
