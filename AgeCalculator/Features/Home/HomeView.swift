@@ -22,7 +22,7 @@ struct HomeView: View {
                                 Button(action: {
                                     showingBottomSheet.toggle()
                                 }, label: {
-                                    RetroView(type: .text("Profile"), size: 20)
+                                    RetroView(type: .text(BirthDateService.shared.selectedBirthDate?.name ?? "Add New Date"), size: 20)
                                         .fixedSize()
                                 })
                                 .buttonStyle(RetroButtonStyle())

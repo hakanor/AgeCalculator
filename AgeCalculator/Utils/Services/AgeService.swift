@@ -26,7 +26,7 @@ class AgeService {
     }
     
     private func calculateDetails() {
-        guard let lastBirthDate = BirthDateService.shared.selectedBirthDate else {
+        guard let lastBirthDate = BirthDateService.shared.selectedBirthDate?.birthDate else {
             return
         }
         
@@ -45,7 +45,7 @@ class AgeService {
             return min(result, days)
         }
         
-        guard let selectedBirthDate = BirthDateService.shared.selectedBirthDate else { return }
+        guard let selectedBirthDate = BirthDateService.shared.selectedBirthDate?.birthDate else { return }
         let daysUntilNextBirthDay = self.daysUntilNextBirthday(birthday: selectedBirthDate)
         
         self.ageInfo = AgeInfo(fractionalAge: "\(Double(seconds) / 31556926)", years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds, daysUntilNextBirthday: daysUntilNextBirthday)

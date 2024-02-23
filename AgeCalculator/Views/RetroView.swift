@@ -3,6 +3,7 @@ import SwiftUI
 enum RetroViewType {
     case text(String)
     case image(String)
+    case textField(Binding<String>, String)
 }
 
 struct RetroButtonStyle: ButtonStyle {
@@ -15,6 +16,7 @@ struct RetroButtonStyle: ButtonStyle {
 struct RetroView: View {
     var type: RetroViewType
     var size: CGFloat = 30
+    var color: Color = ThemeColors.backgroundColor
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -25,7 +27,7 @@ struct RetroView: View {
                 
                 // Top Label
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(ThemeColors.backgroundColor)
+                    .foregroundColor(color)
                 
                 // Stroke
                 RoundedRectangle(cornerRadius: 8)
@@ -42,6 +44,13 @@ struct RetroView: View {
                         Image(systemName: string)
                             .font(.system(size: size))
                             .foregroundColor(ThemeColors.labelColor)
+                    case .textField(let binding, let placeholder):
+                        HStack {
+                            Image(systemName: "textformat")
+                            TextField(placeholder, text: binding)
+                                .textFieldStyle(.plain)
+                                .background(.clear)
+                        }
                     }
                 }
                 .padding(10)
@@ -52,6 +61,7 @@ struct RetroView: View {
 }
 
 struct TestView_Previews: PreviewProvider {
+    @State var textField = ""
     static var previews: some View {
         RetroView(type: .text("Test"))
             .fixedSize(horizontal: false, vertical: true)
