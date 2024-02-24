@@ -41,6 +41,7 @@ class BirthDateService: ObservableObject {
     func removeSelectedBirthDate() {
         userDefaults.removeObject(forKey: "selectedBirthDate")
         self.selectedBirthDate = nil
+        AgeService.shared.ageInfo = AgeInfo(fractionalAge: "", years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, daysUntilNextBirthday: 0)
     }
     
     func removeFromBirthDates(_ birthDate: BirthDateObject) {
@@ -78,6 +79,11 @@ class BirthDateService: ObservableObject {
     func getBirthDates() -> [BirthDateObject] {
         guard let birthDateData = userDefaults.object(forKey: "birthDates") as? Data else { return [] }
         return dataToBirthDateObject(data: birthDateData)?.sorted(by: {$0.date < $1.date}) ?? []
+    }
+    
+    func getBirthDatesCount() -> Int {
+        var birthDates = getBirthDates()
+        return birthDates.count
     }
     
     func birthDateObjectToData(birthDateObjects: [BirthDateObject]) -> Data? {

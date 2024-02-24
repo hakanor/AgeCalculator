@@ -9,13 +9,26 @@ import Foundation
 import SwiftUI
 
 class BottomSheetViewModel: ObservableObject {
-    @Published var birthDates: [BirthDateObject] = []
+    
+    private var birthDateService = BirthDateService.shared
     
     init() {
-        loadBirthDates()
     }
     
-    func loadBirthDates() {
-        self.birthDates = BirthDateService.shared.birthDates
+    func calculateRemainingBirthDates() -> Int {
+        return birthDateService.birthDateCount - birthDateService.getBirthDatesCount()
+    }
+    
+    func removeBirthDate(date: BirthDateObject) {
+        // remove from birtHdate array
+        birthDateService.removeFromBirthDates(date)
+        // remove from selectedBirthDate if it is selected.
+        if date.birthDate == birthDateService.selectedBirthDate?.birthDate {
+            birthDateService.removeSelectedBirthDate()
+        }
+    }
+    
+    func setSelectedBirthDate(birthDateObject: BirthDateObject) {
+        birthDateService.setSelectedBirthDate(birthDateObject)
     }
 }

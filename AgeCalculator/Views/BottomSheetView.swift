@@ -14,6 +14,8 @@ struct BottomSheetView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @ObservedObject var birthDateService = BirthDateService.shared
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,8 +27,7 @@ struct BottomSheetView: View {
                 }).buttonStyle(RetroButtonStyle())
                     .padding()
                 
-                Text("\(BirthDateService.shared.birthDateCount -  BirthDateService.shared.getBirthDates().count) remaining.")
-                
+                Text("\(viewModel.calculateRemainingBirthDates()) remaining.")
                 Spacer()
                 
                 Button(action: {
@@ -43,15 +44,13 @@ struct BottomSheetView: View {
             Divider()
             
             ScrollView {
-                ForEach(viewModel.birthDates, id: \.self) { birthDate in
-                    
+                ForEach(birthDateService.birthDates, id: \.self) { birthDate in
                     HStack {
                         let nameString = birthDate.name
                         let dateString = birthDate.birthDate.formatted()
-                        let object = BirthDateObject(birthDate: birthDate.birthDate, name: nameString)
                         
                         Button(action: {
-                            BirthDateService.shared.setSelectedBirthDate(object)
+                            viewModel.setSelectedBirthDate(birthDateObject: birthDate)
                             self.presentationMode.wrappedValue.dismiss()
                         }, label: {
                             HStack {
@@ -66,10 +65,7 @@ struct BottomSheetView: View {
                         if isEdited {
                             Button(action: {
                                 withAnimation {
-                                    BirthDateService.shared.removeFromBirthDates(birthDate)
-                                    if birthDate.birthDate == BirthDateService.shared.selectedBirthDate!.birthDate {
-                                        BirthDateService.shared.removeSelectedBirthDate()
-                                    }
+                                    viewModel.removeBirthDate(date: birthDate)
                                 }
                             }, label: {
                                 HStack {
@@ -89,43 +85,6 @@ struct BottomSheetView: View {
             AddDateView(isPresented: $isAddDateSheetPresented)
                 .presentationDetents([.medium])
         })
-        .onAppear {
-            viewModel.loadBirthDates()
-        }
-    }
-}
-
-struct AddDateView: View {
-    @Binding var isPresented: Bool
-    @State private var selectedDate = Date()
-    @State private var name: String = ""
-    @State private var deletedBirthDate: BirthDateObject? // Ekledik
-    
-    var body: some View {
-        VStack {
-            DatePicker("", selection: $selectedDate,  displayedComponents: .date)
-                .datePickerStyle(.wheel)
-                .foregroundColor(.gray)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .labelsHidden()
-            
-            RetroView(type: .textField($name, "Enter Name for This BirthDate"))
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(24)
-            
-            Button(action: {
-                let object = BirthDateObject(birthDate: selectedDate, name: name)
-                BirthDateService.shared.setSelectedBirthDate(object)
-                let birthDateObject = BirthDateObject(birthDate: selectedDate, name: name)
-                BirthDateService.shared.appendToBirthDateArray(birthDateObject)
-                isPresented = false
-            }, label: {
-                RetroView(type: .text("Add"),size: 20)
-                    .fixedSize()
-            })
-            .buttonStyle(RetroButtonStyle())
-            .padding()
-        }
     }
 }
 
