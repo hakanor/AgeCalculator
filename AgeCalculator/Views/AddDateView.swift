@@ -35,6 +35,8 @@ struct AddDateView: View {
             })
             .buttonStyle(RetroButtonStyle())
             .padding()
+        }.onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
 }
