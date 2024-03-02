@@ -4,6 +4,8 @@ enum RetroViewType {
     case text(String)
     case image(String)
     case textField(Binding<String>, String)
+    case toggle(Binding<Bool>, String)
+    case settings(String)
 }
 
 struct RetroButtonStyle: ButtonStyle {
@@ -51,6 +53,29 @@ struct RetroView: View {
                                 .textFieldStyle(.plain)
                                 .background(.clear)
                         }
+                    case .toggle(let binding, let title):
+                        HStack {
+                            Toggle(title, isOn: binding)
+                                .font(.system(size: size, weight: .semibold, design: .monospaced))
+                                .foregroundColor(.black)
+                                .toggleStyle(SwitchToggleStyle(tint: .black))
+                        }
+                        .padding(.horizontal, 10)
+                        
+                    case .settings(let string):
+                        HStack {
+                            Text(string)
+                                .font(.system(size: size, weight: .semibold, design: .monospaced))
+                                .colorMultiply(ThemeColors.labelColor)
+                                .bold()
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: size, weight: .semibold, design: .monospaced))
+                                .foregroundColor(ThemeColors.labelColor)
+                            
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
                     }
                 }
                 .padding(10)

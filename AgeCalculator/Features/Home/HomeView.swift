@@ -33,7 +33,7 @@ struct HomeView: View {
                             }
                             Spacer()
                             NavigationLink {
-                                DetailView()
+                                SettingsView()
                             } label: {
                                 RetroView(type: .image("gearshape.fill"), size: 20)
                                     .fixedSize()

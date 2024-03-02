@@ -17,6 +17,7 @@
 		A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843822B6E6E6600401053 /* RetroArrowView.swift */; };
 		A7C843862B6EB1B800401053 /* AgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843852B6EB1B800401053 /* AgeService.swift */; };
 		A7C843892B6EB1F100401053 /* AgeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C843882B6EB1F100401053 /* AgeInfo.swift */; };
+		A7D903A62B9394DA00C0987D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D903A52B9394DA00C0987D /* SettingsView.swift */; };
 		A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17A92B6C071C00B11946 /* DetailView.swift */; };
 		A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */; };
 		A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1B92B682F1F0080707F /* RetroView.swift */; };
@@ -59,6 +60,7 @@
 		A7C843822B6E6E6600401053 /* RetroArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroArrowView.swift; sourceTree = "<group>"; };
 		A7C843852B6EB1B800401053 /* AgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeService.swift; sourceTree = "<group>"; };
 		A7C843882B6EB1F100401053 /* AgeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeInfo.swift; sourceTree = "<group>"; };
+		A7D903A52B9394DA00C0987D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7DD17A92B6C071C00B11946 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A7E8D1B92B682F1F0080707F /* RetroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A7D903A42B93941600C0987D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A7D903A52B9394DA00C0987D /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A7DD17A82B6C070D00B11946 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A7E8D1C12B6863CD0080707F /* Home */,
+				A7D903A42B93941600C0987D /* Settings */,
 				A7DD17A82B6C070D00B11946 /* Detail */,
 			);
 			path = Features;
@@ -385,6 +396,7 @@
 				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
 				A75867AE2B754F26009A3F6B /* BirthDateService.swift in Sources */,
 				A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */,
+				A7D903A62B9394DA00C0987D /* SettingsView.swift in Sources */,
 				A714DBA22B8236A400CB4557 /* UIColor+HexString.swift in Sources */,
 				A794D6722B74217A0025B598 /* String+GroupDigits.swift in Sources */,
 				A7C843862B6EB1B800401053 /* AgeService.swift in Sources */,
