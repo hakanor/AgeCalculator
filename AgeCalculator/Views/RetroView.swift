@@ -18,7 +18,10 @@ struct RetroButtonStyle: ButtonStyle {
 struct RetroView: View {
     var type: RetroViewType
     var size: CGFloat = 30
-    var color: Color = ThemeColors.backgroundColor
+    
+    var backgroundColor : Color = Color("backgroundColor")
+    var labelColor : Color = Color("labelColor")
+    var strokeColor : Color = Color("strokeColor")
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -26,26 +29,28 @@ struct RetroView: View {
                 // Bottom Shadow
                 RoundedRectangle(cornerRadius: 8)
                     .offset(x: 4, y: 5)
+                    .foregroundColor(labelColor)
                 
                 // Top Label
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(color)
+                    .foregroundColor(backgroundColor)
                 
                 // Stroke
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                    .colorMultiply(strokeColor)
                 
                 HStack(spacing: 16) {
                     switch type {
                     case .text(let string):
                         Text(string)
                             .font(.system(size: size, weight: .semibold, design: .monospaced))
-                            .colorMultiply(ThemeColors.labelColor)
+                            .colorMultiply(strokeColor)
                             .bold()
                     case .image(let string):
                         Image(systemName: string)
                             .font(.system(size: size))
-                            .foregroundColor(ThemeColors.labelColor)
+                            .foregroundColor(strokeColor)
                     case .textField(let binding, let placeholder):
                         HStack {
                             Image(systemName: "textformat")
@@ -57,7 +62,6 @@ struct RetroView: View {
                         HStack {
                             Toggle(title, isOn: binding)
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
-                                .foregroundColor(.black)
                                 .toggleStyle(SwitchToggleStyle(tint: .black))
                         }
                         .padding(.horizontal, 10)
@@ -66,12 +70,11 @@ struct RetroView: View {
                         HStack {
                             Text(string)
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
-                                .colorMultiply(ThemeColors.labelColor)
                                 .bold()
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
-                                .foregroundColor(ThemeColors.labelColor)
+                                .foregroundColor(labelColor)
                             
                         }
                         .padding(.horizontal, 10)

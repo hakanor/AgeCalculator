@@ -22,7 +22,7 @@ struct BottomSheetView: View {
                 Button(action: {
                     isAddDateSheetPresented = true
                 }, label: {
-                    RetroView(type: .image("plus"), size: 14, color: ThemeColors.success)
+                    RetroView(type: .image("plus"), size: 14, backgroundColor: ThemeColors.success)
                         .fixedSize()
                 }).buttonStyle(RetroButtonStyle())
                     .padding()
@@ -69,7 +69,7 @@ struct BottomSheetView: View {
                                 }
                             }, label: {
                                 HStack {
-                                    RetroView(type: .image("xmark"),size: 14, color: .red)
+                                    RetroView(type: .image("xmark"),size: 14, backgroundColor: .red)
                                         .fixedSize()
                                 }
                             }).buttonStyle(RetroButtonStyle())

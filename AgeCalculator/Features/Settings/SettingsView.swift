@@ -56,7 +56,7 @@ struct SettingsView: View {
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {
-            RetroArrowView(size: CGSize(width: 30, height: 30), color: ThemeColors.labelColor)
+            RetroArrowView(size: CGSize(width: 30, height: 30))
                 .buttonStyle(RetroButtonStyle())
         })
     }

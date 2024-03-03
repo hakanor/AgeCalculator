@@ -9,9 +9,12 @@ import SwiftUI
 
 struct RetroArrowView: View {
     var size: CGSize
-    var color: Color
     var offsetx: Double = 1.0
     var offsety: Double = 2.0
+    
+    var backgroundColor : Color = Color("backgroundColor")
+    var labelColor : Color = Color("labelColor")
+    var strokeColor : Color = Color("strokeColor")
     
     var body: some View {
         ZStack {
@@ -28,6 +31,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4, y: height * 0.7))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
+                .foregroundColor(strokeColor)
             }
             
             GeometryReader { geometry in
@@ -42,7 +46,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.black)
+                .foregroundColor(labelColor)
             }
             
             GeometryReader { geometry in
@@ -57,16 +61,15 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(ThemeColors.backgroundColor)
+                .foregroundColor(backgroundColor)
             }
         }
         .frame(width: size.width, height: size.height)
-        .foregroundColor(.black)
     }
 }
 
 struct TestArrowView_Previews: PreviewProvider {
     static var previews: some View {
-        RetroArrowView(size: CGSize(width: 30, height: 30), color: .gray)
+        RetroArrowView(size: CGSize(width: 30, height: 30))
     }
 }
