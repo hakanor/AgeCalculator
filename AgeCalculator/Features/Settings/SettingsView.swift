@@ -10,7 +10,14 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var isDarkModeEnabled = false
+    @Environment(\.colorScheme) private var scheme
+    @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
+    
+    @State private var isDarkModeEnabled: Bool = false
+    
+    init() {
+        _isDarkModeEnabled = State(initialValue: userTheme == .dark)
+    }
     
     var body: some View {
         ScrollView {
@@ -40,6 +47,14 @@ struct SettingsView: View {
                     }.buttonStyle(RetroButtonStyle())
                     
                     RetroView(type: .toggle($isDarkModeEnabled, "Toggle Dark Mode"), size: 15)
+                        .onChange(of: isDarkModeEnabled) { newValue in
+                            userTheme = newValue ? .dark : .light
+                            if let window = UIApplication.shared.keyWindow {
+                                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                                    window.overrideUserInterfaceStyle = newValue ? .dark : .light
+                                }, completion: nil)
+                            }
+                        }
                 }
                 
                 VStack(alignment: .leading, spacing: 15) {

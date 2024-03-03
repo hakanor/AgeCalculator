@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AgeCalculatorApp: App {
+    @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .preferredColorScheme(userTheme.colorScheme)
         }
     }
 }

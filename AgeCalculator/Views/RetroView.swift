@@ -20,8 +20,6 @@ struct RetroView: View {
     var size: CGFloat = 30
     
     var backgroundColor : Color = Color("backgroundColor")
-    var labelColor : Color = Color("labelColor")
-    var strokeColor : Color = Color("strokeColor")
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -29,7 +27,7 @@ struct RetroView: View {
                 // Bottom Shadow
                 RoundedRectangle(cornerRadius: 8)
                     .offset(x: 4, y: 5)
-                    .foregroundColor(labelColor)
+                    .foregroundColor(ThemeColors.labelColor)
                 
                 // Top Label
                 RoundedRectangle(cornerRadius: 8)
@@ -38,19 +36,19 @@ struct RetroView: View {
                 // Stroke
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                    .colorMultiply(strokeColor)
+                    .colorMultiply(ThemeColors.strokeColor)
                 
                 HStack(spacing: 16) {
                     switch type {
                     case .text(let string):
                         Text(string)
                             .font(.system(size: size, weight: .semibold, design: .monospaced))
-                            .colorMultiply(strokeColor)
+                            .colorMultiply(ThemeColors.strokeColor)
                             .bold()
                     case .image(let string):
                         Image(systemName: string)
                             .font(.system(size: size))
-                            .foregroundColor(strokeColor)
+                            .foregroundColor(ThemeColors.strokeColor)
                     case .textField(let binding, let placeholder):
                         HStack {
                             Image(systemName: "textformat")
@@ -74,7 +72,7 @@ struct RetroView: View {
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
-                                .foregroundColor(labelColor)
+                                .foregroundColor(ThemeColors.labelColor)
                             
                         }
                         .padding(.horizontal, 10)

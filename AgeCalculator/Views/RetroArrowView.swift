@@ -12,10 +12,6 @@ struct RetroArrowView: View {
     var offsetx: Double = 1.0
     var offsety: Double = 2.0
     
-    var backgroundColor : Color = Color("backgroundColor")
-    var labelColor : Color = Color("labelColor")
-    var strokeColor : Color = Color("strokeColor")
-    
     var body: some View {
         ZStack {
             // Arrow Shape
@@ -31,7 +27,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4, y: height * 0.7))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
-                .foregroundColor(strokeColor)
+                .foregroundColor(ThemeColors.labelColor)
             }
             
             GeometryReader { geometry in
@@ -46,7 +42,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(labelColor)
+                .foregroundColor(ThemeColors.strokeColor)
             }
             
             GeometryReader { geometry in
@@ -61,7 +57,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(backgroundColor)
+                .foregroundColor(ThemeColors.backgroundColor)
             }
         }
         .frame(width: size.width, height: size.height)
