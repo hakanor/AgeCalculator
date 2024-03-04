@@ -21,8 +21,8 @@ struct AddDateView: View {
                 .foregroundColor(.gray)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .labelsHidden()
-            
-            RetroView(type: .textField($name, "Enter Name for This BirthDate"))
+
+            RetroView(type: .textField($name, "enterName_string"))
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(24)
             
@@ -30,7 +30,7 @@ struct AddDateView: View {
                 viewModel.addBirthDate(name: name, selectedDate: selectedDate)
                 isPresented = false
             }, label: {
-                RetroView(type: .text("Add"),size: 20)
+                RetroView(type: .text("add_string"),size: 20)
                     .fixedSize()
             })
             .buttonStyle(RetroButtonStyle())

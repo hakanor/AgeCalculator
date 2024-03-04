@@ -41,7 +41,8 @@ struct RetroView: View {
                 HStack(spacing: 16) {
                     switch type {
                     case .text(let string):
-                        Text(string)
+                        var text = LocalizedStringKey(string)
+                        Text(text)
                             .font(.system(size: size, weight: .semibold, design: .monospaced))
                             .colorMultiply(ThemeColors.strokeColor)
                             .bold()
@@ -51,14 +52,16 @@ struct RetroView: View {
                             .foregroundColor(ThemeColors.strokeColor)
                     case .textField(let binding, let placeholder):
                         HStack {
+                            var text = LocalizedStringKey(placeholder)
                             Image(systemName: "textformat")
-                            TextField(placeholder, text: binding)
+                            TextField(text, text: binding)
                                 .textFieldStyle(.plain)
                                 .background(.clear)
                         }
                     case .toggle(let binding, let title):
                         HStack {
-                            Toggle(title, isOn: binding)
+                            var text = LocalizedStringKey(title)
+                            Toggle(text, isOn: binding)
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
                                 .toggleStyle(SwitchToggleStyle(tint: .black))
                         }
@@ -66,7 +69,8 @@ struct RetroView: View {
                         
                     case .settings(let string):
                         HStack {
-                            Text(string)
+                            var text = LocalizedStringKey(string)
+                            Text(text)
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
                                 .bold()
                             Spacer()

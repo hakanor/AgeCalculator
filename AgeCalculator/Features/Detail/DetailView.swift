@@ -52,12 +52,12 @@ struct DetailView: View {
                         }
                     }
                 }
-                Text("Days Until")
+                Text("daysUntil_string")
                     .font(.system(size: 20, weight: .semibold, design: .monospaced))
                 RetroView(type: .text(String(viewModel.ageInfo.daysUntilNextBirthday)), size: 20)
                     .fixedSize()
                     .contentTransition(.numericText(value: Double(viewModel.ageInfo.daysUntilNextBirthday)))
-                Text("to next birthday")
+                Text("toNextBirthday_string")
                     .font(.system(size: 20, weight: .semibold, design: .monospaced))
                 Spacer()
             }

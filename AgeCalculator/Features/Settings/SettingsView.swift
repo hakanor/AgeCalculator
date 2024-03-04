@@ -20,53 +20,55 @@ struct SettingsView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 30) {
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("General Settings")
-                        .font(.headline)
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 30) {
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("generalSettings_string")
+                            .font(.headline)
+                        
+                        NavigationLink(destination: LanguageSettingsView()) {
+                            RetroView(type: .settings("changeLanguage_string"), size: 15)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }.buttonStyle(RetroButtonStyle())
+                        
+                        NavigationLink(destination: ColorSettingsView()) {
+                            RetroView(type: .settings("changeColor_string"), size: 15)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }.buttonStyle(RetroButtonStyle())
+                    }
                     
-                    NavigationLink(destination: ColorSettingsView()) {
-                        RetroView(type: .settings("Change Language"), size: 15)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }.buttonStyle(RetroButtonStyle())
-                    
-                    NavigationLink(destination: ColorSettingsView()) {
-                        RetroView(type: .settings("Change Color"), size: 15)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }.buttonStyle(RetroButtonStyle())
-                }
-                
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("Premium Settings")
-                        .font(.headline)
-                    
-                    NavigationLink(destination: ColorSettingsView()) {
-                        RetroView(type: .settings("Change Button Color"), size: 15)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }.buttonStyle(RetroButtonStyle())
-                    
-                    RetroView(type: .toggle($isDarkModeEnabled, "Toggle Dark Mode"), size: 15)
-                        .onChange(of: isDarkModeEnabled) { newValue in
-                            userTheme = newValue ? .dark : .light
-                            if let window = UIApplication.shared.keyWindow {
-                                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                                    window.overrideUserInterfaceStyle = newValue ? .dark : .light
-                                }, completion: nil)
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("premiumSettings_string")
+                            .font(.headline)
+                        
+                        NavigationLink(destination: ColorSettingsView()) {
+                            RetroView(type: .settings("changeButtonColor_string"), size: 15)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }.buttonStyle(RetroButtonStyle())
+                        
+                        RetroView(type: .toggle($isDarkModeEnabled, "toggleDarkMode_string"), size: 15)
+                            .onChange(of: isDarkModeEnabled) { newValue in
+                                userTheme = newValue ? .dark : .light
+                                if let window = UIApplication.shared.keyWindow {
+                                    UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                                        window.overrideUserInterfaceStyle = newValue ? .dark : .light
+                                    }, completion: nil)
+                                }
                             }
-                        }
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("aboutApp_string")
+                            .font(.headline)
+                        RetroView(type: .text("appVersion_string"), size: 15)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-                
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("About App")
-                        .font(.headline)
-                    RetroView(type: .text("App Version: 1.0.1"), size: 15)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                .padding()
             }
-            .padding()
         }
-        .navigationBarTitle("Settings")
+        .navigationBarTitle("settingsTitle_string")
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
@@ -77,10 +79,15 @@ struct SettingsView: View {
     }
 }
 
-
 struct LanguageSettingsView: View {
     var body: some View {
-        Text("language change screen")
+        VStack {
+            Button("English") {
+            }
+            
+            Button("turkish") {
+            }
+        }
     }
 }
 

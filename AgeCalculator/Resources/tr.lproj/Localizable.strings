@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  AgeCalculator
+
+  Created by Hakan Or on 4.03.2024.
+  
+*/
+
+// HomeView
+"addDate_string" = "Yeni Tarih Ekle";
+"age_string" = "Yaş:";
+
+// SettingsView
+"settingsTitle_string" = "Ayarlar";
+"generalSettings_string" = "Genel Ayarlar";
+"changeLanguage_string" = "Dil Değiştir";
+"changeColor_string" = "Renk Değiştir";
+"premiumSettings_string" = "Premium Ayarlar";
+"changeButtonColor_string" = "Buton Rengini Değiştir";
+"toggleDarkMode_string" = "Karanlık Mod";
+"aboutApp_string" = "Uygulama Hakkında";
+"appVersion_string" = "Uygulama Versiyonu: %@";
+
+// DetailView
+"daysUntil_string" = "Bir sonraki doğum gününe";
+"toNextBirthday_string" = "kalan gün sayısı";
+
+// BottomSheetView
+"remaining_string %@" = "Kalan: %@";
+
+//AddDateView
+"enterName_string" = "Doğum tarihi için bir isim giriniz";
+"add_string" = "Ekle";

@@ -22,7 +22,7 @@ struct HomeView: View {
                                 Button(action: {
                                     showingBottomSheet.toggle()
                                 }, label: {
-                                    RetroView(type: .text(BirthDateService.shared.selectedBirthDate?.name ?? "Add New Date"), size: 20)
+                                    RetroView(type: .text(BirthDateService.shared.selectedBirthDate?.name ?? "addDate_string"), size: 20)
                                         .fixedSize()
                                 })
                                 .buttonStyle(RetroButtonStyle())
@@ -43,7 +43,7 @@ struct HomeView: View {
                         .padding()
                         Spacer()
                         HStack {
-                            Text("Age:")
+                            Text("age_string")
                                 .font(.system(size: 24, weight: .semibold, design: .monospaced))
                                 .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
                             Spacer()

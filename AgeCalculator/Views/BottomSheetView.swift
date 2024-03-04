@@ -27,7 +27,9 @@ struct BottomSheetView: View {
                 }).buttonStyle(RetroButtonStyle())
                     .padding()
                 
-                Text("\(viewModel.calculateRemainingBirthDates()) remaining.")
+                let text = String(viewModel.calculateRemainingBirthDates())
+                Text("remaining_string \(text)")
+                
                 Spacer()
                 
                 Button(action: {

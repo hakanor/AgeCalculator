@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  AgeCalculator
+
+  Created by Hakan Or on 4.03.2024.
+  
+*/
+
+// HomeView
+"addDate_string" = "Add New Date";
+"age_string" = "Age:";
+
+// SettingsView
+"settingsTitle_string" = "Settings";
+"generalSettings_string" = "General Settings";
+"changeLanguage_string" = "Change Language";
+"changeColor_string" = "Change Color";
+"premiumSettings_string" = "Premium Settings";
+"changeButtonColor_string" = "Change Button Color";
+"toggleDarkMode_string" = "Toggle Dark Mode";
+"aboutApp_string" = "About App";
+"appVersion_string" = "App Version %@";
+
+// DetailView
+"daysUntil_string" = "Days until";
+"toNextBirthday_string" = "to next birthday";
+
+// BottomSheetView
+"remaining_string %@" = "Remaining: %@";
+
+//AddDateView
+"enterName_string" = "Enter Name for This BirthDate";
+"add_string" = "Add";
