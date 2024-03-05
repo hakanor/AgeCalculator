@@ -15,6 +15,9 @@ struct SettingsView: View {
     
     @State private var isDarkModeEnabled: Bool = false
     
+    @State var showingLanguageSettingsSheet = false
+    @State var showingColorSettingsSheet = false
+    
     init() {
         _isDarkModeEnabled = State(initialValue: userTheme == .dark)
     }
@@ -26,18 +29,22 @@ struct SettingsView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         Text("generalSettings_string")
                             .font(.headline)
-                        
-                        NavigationLink(destination: LanguageSettingsView()) {
+                        Button(action: {
+                            showingLanguageSettingsSheet.toggle()
+                        }, label: {
                             RetroView(type: .settings("changeLanguage_string"), size: 15)
                                 .fixedSize(horizontal: false, vertical: true)
-                        }.buttonStyle(RetroButtonStyle())
+                        })
+                        .buttonStyle(RetroButtonStyle())
                         
-                        NavigationLink(destination: ColorSettingsView()) {
+                        Button(action: {
+                            showingColorSettingsSheet.toggle()
+                        }, label: {
                             RetroView(type: .settings("changeColor_string"), size: 15)
                                 .fixedSize(horizontal: false, vertical: true)
-                        }.buttonStyle(RetroButtonStyle())
+                        })
+                        .buttonStyle(RetroButtonStyle())
                     }
-                    
                     VStack(alignment: .leading, spacing: 15) {
                         Text("premiumSettings_string")
                             .font(.headline)
@@ -67,6 +74,16 @@ struct SettingsView: View {
                 }
                 .padding()
             }
+            .sheet(isPresented: $showingLanguageSettingsSheet) {
+                LanguageSettingsView(showingLanguageSettingsSheet: $showingLanguageSettingsSheet)
+                    .presentationDetents([.medium])
+                    .padding()
+            }
+            .sheet(isPresented: $showingColorSettingsSheet) {
+                ColorSettingsView()
+                    .presentationDetents([.medium])
+                    .padding()
+            }
         }
         .navigationBarTitle("settingsTitle_string")
         .navigationBarBackButtonHidden(true)
@@ -76,24 +93,6 @@ struct SettingsView: View {
             RetroArrowView(size: CGSize(width: 30, height: 30))
                 .buttonStyle(RetroButtonStyle())
         })
-    }
-}
-
-struct LanguageSettingsView: View {
-    var body: some View {
-        VStack {
-            Button("English") {
-            }
-            
-            Button("turkish") {
-            }
-        }
-    }
-}
-
-struct ColorSettingsView: View {
-    var body: some View {
-        Text("color change screen")
     }
 }
 

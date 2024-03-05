@@ -31,3 +31,6 @@
 //AddDateView
 "enterName_string" = "Enter Name for This BirthDate";
 "add_string" = "Add";
+
+// LanguageSettingsView
+"apply_string" = "Apply";

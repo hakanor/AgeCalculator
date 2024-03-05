@@ -31,3 +31,6 @@
 //AddDateView
 "enterName_string" = "Doğum tarihi için bir isim giriniz";
 "add_string" = "Ekle";
+
+// LanguageSettingsView
+"apply_string" = "Uygula";
