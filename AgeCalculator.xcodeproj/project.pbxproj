@@ -22,6 +22,7 @@
 		A7D903A62B9394DA00C0987D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D903A52B9394DA00C0987D /* SettingsView.swift */; };
 		A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17A92B6C071C00B11946 /* DetailView.swift */; };
 		A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */; };
+		A7E0A84A2B98E9D700D49DC7 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E0A8492B98E9D700D49DC7 /* SliderView.swift */; };
 		A7E17A052B976FE0000C816F /* LanguageSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E17A042B976FE0000C816F /* LanguageSettingsView.swift */; };
 		A7E17A072B977C70000C816F /* SupportedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E17A062B977C70000C816F /* SupportedLanguage.swift */; };
 		A7E17A092B977C97000C816F /* LanguageSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E17A082B977C97000C816F /* LanguageSettings.swift */; };
@@ -72,6 +73,7 @@
 		A7D903A52B9394DA00C0987D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7DD17A92B6C071C00B11946 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A7DD17AB2B6C072500B11946 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		A7E0A8492B98E9D700D49DC7 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		A7E17A042B976FE0000C816F /* LanguageSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsView.swift; sourceTree = "<group>"; };
 		A7E17A062B977C70000C816F /* SupportedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguage.swift; sourceTree = "<group>"; };
 		A7E17A082B977C97000C816F /* LanguageSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettings.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				A7C70D012B80E86B003628F5 /* BottomSheetViewModel.swift */,
 				A7A89DE62B8A10050092CA01 /* AddDateView.swift */,
 				A7A89DE82B8A11580092CA01 /* AddDateViewModel.swift */,
+				A7E0A8492B98E9D700D49DC7 /* SliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				A794D6722B74217A0025B598 /* String+GroupDigits.swift in Sources */,
 				A7C843862B6EB1B800401053 /* AgeService.swift in Sources */,
 				A7C70D022B80E86B003628F5 /* BottomSheetViewModel.swift in Sources */,
+				A7E0A84A2B98E9D700D49DC7 /* SliderView.swift in Sources */,
 				A7DD17AA2B6C071C00B11946 /* DetailView.swift in Sources */,
 				A75867AC2B752606009A3F6B /* BottomSheetView.swift in Sources */,
 				A7E17A072B977C70000C816F /* SupportedLanguage.swift in Sources */,
