@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct BottomSheetView: View {
+    
+    @EnvironmentObject var themeColors: ThemeColors
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var birthDateService = BirthDateService.shared
     @StateObject private var viewModel = BottomSheetViewModel()
     @State private var isAddDateSheetPresented = false
     @State private var isEdited : Bool = false
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    @ObservedObject var birthDateService = BirthDateService.shared
     
     var body: some View {
         VStack {
@@ -22,7 +22,7 @@ struct BottomSheetView: View {
                 Button(action: {
                     isAddDateSheetPresented = true
                 }, label: {
-                    RetroView(type: .image("plus"), size: 14, backgroundColor: ThemeColors.success)
+                    RetroView(type: .image("plus"), size: 14, color: themeColors.success)
                         .fixedSize()
                 }).buttonStyle(RetroButtonStyle())
                     .padding()
@@ -71,11 +71,10 @@ struct BottomSheetView: View {
                                 }
                             }, label: {
                                 HStack {
-                                    RetroView(type: .image("xmark"),size: 14, backgroundColor: .red)
+                                    RetroView(type: .image("xmark"),size: 14, color: .red)
                                         .fixedSize()
                                 }
                             }).buttonStyle(RetroButtonStyle())
-                            
                                 .padding()
                         }
                     }

@@ -16,10 +16,12 @@ struct RetroButtonStyle: ButtonStyle {
 }
 
 struct RetroView: View {
+    
+    @EnvironmentObject var themeColors: ThemeColors
     var type: RetroViewType
     var size: CGFloat = 30
     
-    var backgroundColor : Color = Color("backgroundColor")
+    var color: Color?
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -27,16 +29,17 @@ struct RetroView: View {
                 // Bottom Shadow
                 RoundedRectangle(cornerRadius: 8)
                     .offset(x: 4, y: 5)
-                    .foregroundColor(ThemeColors.labelColor)
+                    .foregroundColor(themeColors.labelColor)
                 
                 // Top Label
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(backgroundColor)
+                // varsa color kullanılsın, yoksa themeColors.backgroundColor
+                    .foregroundColor(color != nil ? color : themeColors.backgroundColor)
                 
                 // Stroke
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                    .colorMultiply(ThemeColors.strokeColor)
+                    .colorMultiply(themeColors.strokeColor)
                 
                 HStack(spacing: 16) {
                     switch type {
@@ -44,12 +47,12 @@ struct RetroView: View {
                         var text = LocalizedStringKey(string)
                         Text(text)
                             .font(.system(size: size, weight: .semibold, design: .monospaced))
-                            .colorMultiply(ThemeColors.strokeColor)
+                            .colorMultiply(themeColors.strokeColor)
                             .bold()
                     case .image(let string):
                         Image(systemName: string)
                             .font(.system(size: size))
-                            .foregroundColor(ThemeColors.strokeColor)
+                            .foregroundColor(themeColors.strokeColor)
                     case .textField(let binding, let placeholder):
                         HStack {
                             var text = LocalizedStringKey(placeholder)
@@ -76,7 +79,7 @@ struct RetroView: View {
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .font(.system(size: size, weight: .semibold, design: .monospaced))
-                                .foregroundColor(ThemeColors.labelColor)
+                                .foregroundColor(themeColors.labelColor)
                             
                         }
                         .padding(.horizontal, 10)

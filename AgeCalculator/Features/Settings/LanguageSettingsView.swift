@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LanguageSettingsView: View {
+    
+    @Environment(LanguageSettings.self) var languageSettings
     @State private var selectedLanguage = SupportedLanguage.english
-    @Environment(LanguageSettings.self) var languageSetting
     @Binding var showingLanguageSettingsSheet: Bool
     
     var body: some View {
@@ -22,7 +23,7 @@ struct LanguageSettingsView: View {
             }
             .pickerStyle(.wheel)
             Button(action: {
-                languageSetting.setLocale(language: selectedLanguage)
+                languageSettings.setLocale(language: selectedLanguage)
                 showingLanguageSettingsSheet = false
             }, label: {
                 RetroView(type: .text("apply_string"), size: 15)

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SliderView: View {
-    @Binding var value: Double
     
+    @EnvironmentObject var themeColors: ThemeColors
+    @Binding var value: Double
     @State var lastCoordinateValue: CGFloat = 0.0
     var sliderRange: ClosedRange<Double> = 1...100
     var thumbColor: Color = Color(.systemGray)
@@ -37,7 +38,7 @@ struct SliderView: View {
                 HStack {
                     Rectangle()
                         .foregroundColor(minTrackColor)
-                    .frame(width: sliderVal, height: gr.size.height * 0.95)
+                        .frame(width: sliderVal, height: gr.size.height * 0.95)
                     Spacer()
                 }
                 .clipShape(RoundedRectangle(cornerRadius: radius))
@@ -51,27 +52,27 @@ struct SliderView: View {
                         // Stroke
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                            .colorMultiply(ThemeColors.strokeColor)
+                            .colorMultiply(themeColors.strokeColor)
                     }
-
-                        .foregroundColor(thumbColor)
-                        .frame(width: thumbWidth, height: thumbHeight)
-                        .offset(x: sliderVal)
-                        .gesture(
-                            DragGesture(minimumDistance: 0)
-                                .onChanged { v in
-                                    if (abs(v.translation.width) < 0.1) {
-                                        self.lastCoordinateValue = sliderVal
-                                    }
-                                    if v.translation.width > 0 {
-                                        let nextCoordinateValue = min(maxValue, self.lastCoordinateValue + v.translation.width)
-                                        self.value = ((nextCoordinateValue - minValue) / scaleFactor)  + lower
-                                    } else {
-                                        let nextCoordinateValue = max(minValue, self.lastCoordinateValue + v.translation.width)
-                                        self.value = ((nextCoordinateValue - minValue) / scaleFactor) + lower
-                                    }
-                               }
-                        )
+                    
+                    .foregroundColor(thumbColor)
+                    .frame(width: thumbWidth, height: thumbHeight)
+                    .offset(x: sliderVal)
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged { v in
+                                if (abs(v.translation.width) < 0.1) {
+                                    self.lastCoordinateValue = sliderVal
+                                }
+                                if v.translation.width > 0 {
+                                    let nextCoordinateValue = min(maxValue, self.lastCoordinateValue + v.translation.width)
+                                    self.value = ((nextCoordinateValue - minValue) / scaleFactor)  + lower
+                                } else {
+                                    let nextCoordinateValue = max(minValue, self.lastCoordinateValue + v.translation.width)
+                                    self.value = ((nextCoordinateValue - minValue) / scaleFactor) + lower
+                                }
+                            }
+                    )
                     Spacer()
                 }
             }

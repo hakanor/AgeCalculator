@@ -36,14 +36,6 @@ struct SettingsView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                         })
                         .buttonStyle(RetroButtonStyle())
-                        
-                        Button(action: {
-                            showingColorSettingsSheet.toggle()
-                        }, label: {
-                            RetroView(type: .settings("changeColor_string"), size: 15)
-                                .fixedSize(horizontal: false, vertical: true)
-                        })
-                        .buttonStyle(RetroButtonStyle())
                     }
                     VStack(alignment: .leading, spacing: 15) {
                         Text("premiumSettings_string")

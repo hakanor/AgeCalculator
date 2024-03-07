@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RetroArrowView: View {
+    
+    @EnvironmentObject var themeColors: ThemeColors
     var size: CGSize
     var offsetx: Double = 1.0
     var offsety: Double = 2.0
@@ -27,7 +29,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4, y: height * 0.7))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round))
-                .foregroundColor(ThemeColors.labelColor)
+                .foregroundColor(themeColors.labelColor)
             }
             
             GeometryReader { geometry in
@@ -42,7 +44,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(ThemeColors.strokeColor)
+                .foregroundColor(themeColors.strokeColor)
             }
             
             GeometryReader { geometry in
@@ -57,7 +59,7 @@ struct RetroArrowView: View {
                     path.addLine(to: CGPoint(x: width * 0.4 - offsetx, y: height * 0.7 - offsety))
                 }
                 .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(ThemeColors.backgroundColor)
+                .foregroundColor(themeColors.backgroundColor)
             }
         }
         .frame(width: size.width, height: size.height)
