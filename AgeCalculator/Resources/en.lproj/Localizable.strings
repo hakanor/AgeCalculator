@@ -34,3 +34,15 @@
 
 // LanguageSettingsView
 "apply_string" = "Apply";
+
+"totalYears_string" = "Total Years:";
+"totalMonths_string" = "Total Months:";
+"totalDays_string" = "Total Days:";
+"totalHours_string" = "Total Hours:";
+"totalMinutes_string" = "Total Minutes:";
+"totalSeconds_string" = "Total Seconds:";
+
+// ColorSettingsView
+"red_string" = "Red";
+"blue_string" = "Blue";
+"green_string" = "Green";

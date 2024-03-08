@@ -51,15 +51,15 @@ struct DetailView: View {
                             .padding()
                         }
                     }
+                    Text("daysUntil_string")
+                        .font(.system(size: 20, weight: .semibold, design: .monospaced))
+                    RetroView(type: .text(String(viewModel.ageInfo.daysUntilNextBirthday)), size: 20)
+                        .fixedSize()
+                        .contentTransition(.numericText(value: Double(viewModel.ageInfo.daysUntilNextBirthday)))
+                    Text("toNextBirthday_string")
+                        .font(.system(size: 20, weight: .semibold, design: .monospaced))
                 }
-                Text("daysUntil_string")
-                    .font(.system(size: 20, weight: .semibold, design: .monospaced))
-                RetroView(type: .text(String(viewModel.ageInfo.daysUntilNextBirthday)), size: 20)
-                    .fixedSize()
-                    .contentTransition(.numericText(value: Double(viewModel.ageInfo.daysUntilNextBirthday)))
-                Text("toNextBirthday_string")
-                    .font(.system(size: 20, weight: .semibold, design: .monospaced))
-                Spacer()
+                .padding()
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -75,5 +75,22 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView()
+    }
+}
+
+struct DetailRow: View {
+    let title: String
+    let value: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.system(size: 20, weight: .semibold, design: .monospaced))
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            Spacer()
+            RetroView(type: .text(value.groupDigits()), size: 16)
+                .contentTransition(.numericText(value: Double(value) ?? 0.0))
+                .fixedSize()
+        }
     }
 }

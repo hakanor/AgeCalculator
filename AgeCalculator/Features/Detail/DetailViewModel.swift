@@ -12,12 +12,12 @@ class DetailViewModel: ObservableObject {
     
     @Published var ageInfo: AgeInfo = AgeInfo(fractionalAge:"", years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, daysUntilNextBirthday: 0)
     @Published var ageInfoDetail: [(String, String)] = [
-        ("Total Years:", "Years"),
-        ("Total Months:", "Months"),
-        ("Total Days:", "Days"),
-        ("Total Hours:", "Hours"),
-        ("Total Minutes:", "Minutes"),
-        ("Total Seconds:", "Seconds")
+        (NSLocalizedString("totalYears_string", comment: ""), ""),
+        (NSLocalizedString("totalMonths_string", comment: ""), ""),
+        (NSLocalizedString("totalDays_string", comment: ""), ""),
+        (NSLocalizedString("totalHours_string", comment: ""), ""),
+        (NSLocalizedString("totalMinutes_string", comment: ""), ""),
+        (NSLocalizedString("totalSeconds_string", comment: ""), ""),
     ]
     private var ageService = AgeService.shared
     private var cancellables = Set<AnyCancellable>()
@@ -38,12 +38,12 @@ class DetailViewModel: ObservableObject {
     
     func getAgeInfoDetail(ageInfo: AgeInfo) -> [(String, String)] {
         let ageInfoDetail: [(String, String)] = [
-            ("Total Years:", "\(ageInfo.years)"),
-            ("Total Months:", "\(ageInfo.months)"),
-            ("Total Days:", "\(ageInfo.days)"),
-            ("Total Hours:", "\(ageInfo.hours)"),
-            ("Total Minutes:", "\(ageInfo.minutes)"),
-            ("Total Seconds:", "\(ageInfo.seconds)")
+            (NSLocalizedString("totalYears_string", comment: ""), "\(ageInfo.years)"),
+            (NSLocalizedString("totalMonths_string", comment: ""), "\(ageInfo.months)"),
+            (NSLocalizedString("totalDays_string", comment: ""), "\(ageInfo.hours)"),
+            (NSLocalizedString("totalHours_string", comment: ""), "\(ageInfo.minutes)"),
+            (NSLocalizedString("totalMinutes_string", comment: ""), "\(ageInfo.minutes)"),
+            (NSLocalizedString("totalSeconds_string", comment: ""), "\(ageInfo.seconds)"),
         ]
         return ageInfoDetail
     }

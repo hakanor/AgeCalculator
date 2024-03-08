@@ -36,7 +36,7 @@ struct ColorSettingsView: View {
             }
             
             HStack {
-                Text("Red")
+                Text("red_string")
                     .font(.system(.title2))
                     .frame(width: 70)
                 SliderView(value: $redValue, sliderRange: 0...1, thumbColor: Color(red: redValue, green: greenValue, blue: blueValue))
@@ -44,7 +44,7 @@ struct ColorSettingsView: View {
             }
             
             HStack {
-                Text("Blue")
+                Text("blue_string")
                     .font(.system(.title2))
                     .frame(width: 70)
                 SliderView(value: $blueValue, sliderRange: 0...1, thumbColor: Color(red: redValue, green: greenValue, blue: blueValue))
@@ -52,7 +52,7 @@ struct ColorSettingsView: View {
             }
             
             HStack {
-                Text("Green")
+                Text("green_string")
                     .font(.system(.title2))
                     .frame(width: 70)
                 SliderView(value: $greenValue, sliderRange: 0...1, thumbColor: Color(red: redValue, green: greenValue, blue: blueValue))

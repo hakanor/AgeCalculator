@@ -34,3 +34,15 @@
 
 // LanguageSettingsView
 "apply_string" = "Uygula";
+
+"totalYears_string" = "Toplam Yıl:";
+"totalMonths_string" = "Toplam Ay:";
+"totalDays_string" = "Toplam Gün:";
+"totalHours_string" = "Toplam Saat:";
+"totalMinutes_string" = "Toplam Dakika:";
+"totalSeconds_string" = "Toplam Saniye:";
+
+// ColorSettingsView
+"red_string" = "Kırmızı";
+"blue_string" = "Mavi";
+"green_string" = "Yeşil";

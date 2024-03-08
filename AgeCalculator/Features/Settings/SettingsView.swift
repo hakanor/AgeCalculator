@@ -41,10 +41,13 @@ struct SettingsView: View {
                         Text("premiumSettings_string")
                             .font(.headline)
                         
-                        NavigationLink(destination: ColorSettingsView()) {
-                            RetroView(type: .settings("changeButtonColor_string"), size: 15)
+                        Button(action: {
+                            showingColorSettingsSheet.toggle()
+                        }, label: {
+                            RetroView(type: .settings("changeColor_string"), size: 15)
                                 .fixedSize(horizontal: false, vertical: true)
-                        }.buttonStyle(RetroButtonStyle())
+                        })
+                        .buttonStyle(RetroButtonStyle())
                         
                         RetroView(type: .toggle($isDarkModeEnabled, "toggleDarkMode_string"), size: 15)
                             .onChange(of: isDarkModeEnabled) { newValue in
