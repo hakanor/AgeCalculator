@@ -36,6 +36,15 @@ struct SettingsView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                         })
                         .buttonStyle(RetroButtonStyle())
+                        
+                        NavigationLink {
+                            PurchaseView()
+                        } label: {
+                            RetroView(type: .settings("buyPremium_string"), size: 15)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .buttonStyle(RetroButtonStyle())
+                        
                     }
                     VStack(alignment: .leading, spacing: 15) {
                         Text("premiumSettings_string")
