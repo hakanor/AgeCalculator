@@ -47,3 +47,16 @@
 "red_string" = "Kırmızı";
 "blue_string" = "Mavi";
 "green_string" = "Yeşil";
+
+// PurchaseView
+"unlimited_age_track_string" = "Sınırsız Yaş Takibi";
+"unlock_button_colors_string" = "Buton Renklerini Özelleştirme";
+"unlock_dark_mode_string" = "Karanlık Mod";
+
+"premium_title_string" = "Age Calculator Pro";
+"premium_subtitle_string" = "Yaşınızı hesaplamanın farklı bir yolu.";
+"unlock_premium_string" = "Premium Özellikleri Aç";
+"restore_purchases_string" = "Satın Alımları Geri Yükle";
+
+// StoreItemView
+"buy_string" = "Satın Al";

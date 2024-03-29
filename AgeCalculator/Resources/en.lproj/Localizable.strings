@@ -47,3 +47,16 @@
 "red_string" = "Red";
 "blue_string" = "Blue";
 "green_string" = "Green";
+
+// PurchaseView
+"unlimited_age_track_string" = "Unlimited Age Tracking";
+"unlock_button_colors_string" = "Button Color Customization";
+"unlock_dark_mode_string" = "Dark Mode";
+
+"premium_title_string" = "Age Calculator Pro";
+"premium_subtitle_string" = "Different way to calculate your age.";
+"unlock_premium_string" = "Unlock Premium Features";
+"restore_purchases_string" = "Restore Purchases";
+
+// StoreItemView
+"buy_string" = "Buy";

@@ -34,6 +34,8 @@
 		A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1B92B682F1F0080707F /* RetroView.swift */; };
 		A7E8D1C32B6864B10080707F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C22B6864B10080707F /* HomeViewModel.swift */; };
 		A7E8D1C52B686A390080707F /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8D1C42B686A390080707F /* ThemeColors.swift */; };
+		A7ECC0552BB623B500BBACA6 /* StoreItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ECC0542BB623B500BBACA6 /* StoreItemView.swift */; };
+		A7ECC0592BB6309400BBACA6 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ECC0582BB6309400BBACA6 /* PurchaseViewModel.swift */; };
 		A7EFE43C2B5D869A00D13B53 /* AgeCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */; };
 		A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EFE43D2B5D869A00D13B53 /* HomeView.swift */; };
 		A7EFE4402B5D869B00D13B53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7EFE43F2B5D869B00D13B53 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 		A7E8D1B92B682F1F0080707F /* RetroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroView.swift; sourceTree = "<group>"; };
 		A7E8D1C22B6864B10080707F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A7E8D1C42B686A390080707F /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
+		A7ECC0542BB623B500BBACA6 /* StoreItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemView.swift; sourceTree = "<group>"; };
+		A7ECC0582BB6309400BBACA6 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 		A7EFE4382B5D869A00D13B53 /* AgeCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgeCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EFE43B2B5D869A00D13B53 /* AgeCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCalculatorApp.swift; sourceTree = "<group>"; };
 		A7EFE43D2B5D869A00D13B53 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -150,10 +154,10 @@
 		A7D903A42B93941600C0987D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A7ECC0562BB6307800BBACA6 /* PurchaseView */,
 				A7D903A52B9394DA00C0987D /* SettingsView.swift */,
 				A7E17A042B976FE0000C816F /* LanguageSettingsView.swift */,
 				A7E17A0A2B977CB7000C816F /* ColorSettingsView.swift */,
-				A7C802462B9CE2FC00AC5C5F /* PurchaseView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -195,6 +199,7 @@
 				A7A89DE62B8A10050092CA01 /* AddDateView.swift */,
 				A7A89DE82B8A11580092CA01 /* AddDateViewModel.swift */,
 				A7E0A8492B98E9D700D49DC7 /* SliderView.swift */,
+				A7ECC0542BB623B500BBACA6 /* StoreItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +241,15 @@
 				A7E8D1C22B6864B10080707F /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A7ECC0562BB6307800BBACA6 /* PurchaseView */ = {
+			isa = PBXGroup;
+			children = (
+				A7C802462B9CE2FC00AC5C5F /* PurchaseView.swift */,
+				A7ECC0582BB6309400BBACA6 /* PurchaseViewModel.swift */,
+			);
+			path = PurchaseView;
 			sourceTree = "<group>";
 		};
 		A7EFE42F2B5D869A00D13B53 = {
@@ -433,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E17A0B2B977CB7000C816F /* ColorSettingsView.swift in Sources */,
+				A7ECC0592BB6309400BBACA6 /* PurchaseViewModel.swift in Sources */,
 				A7E8D1BA2B682F1F0080707F /* RetroView.swift in Sources */,
 				A75867AE2B754F26009A3F6B /* BirthDateService.swift in Sources */,
 				A7C843832B6E6E6600401053 /* RetroArrowView.swift in Sources */,
@@ -448,6 +463,7 @@
 				A7E17A072B977C70000C816F /* SupportedLanguage.swift in Sources */,
 				A7DD17AC2B6C072500B11946 /* DetailViewModel.swift in Sources */,
 				A7E8D1C52B686A390080707F /* ThemeColors.swift in Sources */,
+				A7ECC0552BB623B500BBACA6 /* StoreItemView.swift in Sources */,
 				A7EFE43E2B5D869A00D13B53 /* HomeView.swift in Sources */,
 				A7E17A052B976FE0000C816F /* LanguageSettingsView.swift in Sources */,
 				A7B4ACDC2B952598001E65D8 /* Theme.swift in Sources */,
