@@ -17,6 +17,7 @@
 "buyPremium_string" = "Premium Al";
 "changeColor_string" = "Renk Değiştir";
 "premiumSettings_string" = "Premium Ayarlar";
+"no_access_premium_string" = "Premium özelliklere erişiminiz bulunmamaktadır.";
 "changeButtonColor_string" = "Buton Rengini Değiştir";
 "toggleDarkMode_string" = "Karanlık Mod";
 "aboutApp_string" = "Uygulama Hakkında";

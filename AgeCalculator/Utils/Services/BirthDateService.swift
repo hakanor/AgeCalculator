@@ -16,7 +16,15 @@ struct BirthDateObject: Codable, Hashable {
 class BirthDateService: ObservableObject {
     static let shared = BirthDateService()
     
-    var birthDateCount = 3
+    var birthDateCount: Int {
+        get {
+            return StoreKitManager.shared.hasPremiumAccess ? 999 : 3
+        }
+        set {
+            
+        }
+    }
+    
     private let userDefaults = UserDefaults.standard
     
     @Published var birthDates: [BirthDateObject] = []

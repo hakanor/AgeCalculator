@@ -11,8 +11,9 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.colorScheme) private var scheme
-    @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
+    @EnvironmentObject var storeKitManager: StoreKitManager
     
+    @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     @State private var isDarkModeEnabled: Bool = false
     
     @State var showingLanguageSettingsSheet = false
@@ -57,6 +58,8 @@ struct SettingsView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                         })
                         .buttonStyle(RetroButtonStyle())
+                        .opacity(StoreKitManager.shared.hasPremiumAccess ? 1.0 : 0.5)
+                        .disabled(!StoreKitManager.shared.hasPremiumAccess)
                         
                         RetroView(type: .toggle($isDarkModeEnabled, "toggleDarkMode_string"), size: 15)
                             .onChange(of: isDarkModeEnabled) { newValue in
@@ -67,6 +70,13 @@ struct SettingsView: View {
                                     }, completion: nil)
                                 }
                             }
+                            .opacity(StoreKitManager.shared.hasPremiumAccess  ? 1.0 : 0.5)
+                            .disabled(!StoreKitManager.shared.hasPremiumAccess)
+                        
+                        if !StoreKitManager.shared.hasPremiumAccess  {
+                            Text("no_access_premium_string")
+                                .foregroundColor(.red)
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 15) {

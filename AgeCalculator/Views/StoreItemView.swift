@@ -45,6 +45,11 @@ struct StoreItem: View {
                 isPurchased = (try? await storeKit.isPurchased(product)) ?? false
             }
         }
+        .onAppear(perform: {
+            Task {
+                isPurchased = (try? await storeKit.isPurchased(product)) ?? false
+            }
+        })
         .padding(.vertical, 10)
         .padding(.horizontal)
         .background(Color.secondary.opacity(0.1))

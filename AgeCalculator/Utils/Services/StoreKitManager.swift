@@ -10,6 +10,10 @@ import StoreKit
 
 class StoreKitManager : ObservableObject {
     
+    static let shared = StoreKitManager()
+    
+    @Published var hasPremiumAccess: Bool = false
+    
     @Published var storeProducts: [Product] = []
     @Published var purchasedProducts: [Product] = []
     
@@ -28,7 +32,7 @@ class StoreKitManager : ObservableObject {
         }
         
         //Start a transaction listener as close to the app launch as possible so you don't miss any transaction
-                updateListenerTask = listenForTransactions()
+        updateListenerTask = listenForTransactions()
         
         Task {
             await requestProducts()
@@ -43,6 +47,10 @@ class StoreKitManager : ObservableObject {
         updateListenerTask?.cancel()
     }
     
+    func updatePremiumAccess() -> Bool {
+        return purchasedProducts.contains { $0.id == "com.temporary.premium" }
+    }
+
     //listen for transactions - start this early in the app
     func listenForTransactions() -> Task<Void, Error> {
         return Task.detached {
@@ -111,6 +119,9 @@ class StoreKitManager : ObservableObject {
             
             //finally assign the purchased products
             self.purchasedProducts = purchasedProducts
+            print("purchasedProducts changed, storekitManager.hasPremiumAccess\(self.hasPremiumAccess)")
+            self.hasPremiumAccess = updatePremiumAccess()
+            print("purchasedProducts updated, storekitManager.hasPremiumAccess\(self.hasPremiumAccess)")
         }
     }
     

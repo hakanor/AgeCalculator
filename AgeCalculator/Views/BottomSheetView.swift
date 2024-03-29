@@ -10,6 +10,7 @@ import SwiftUI
 struct BottomSheetView: View {
     
     @EnvironmentObject var themeColors: ThemeColors
+    @EnvironmentObject var storeKitManager: StoreKitManager
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var birthDateService = BirthDateService.shared
     @StateObject private var viewModel = BottomSheetViewModel()
@@ -27,8 +28,10 @@ struct BottomSheetView: View {
                 }).buttonStyle(RetroButtonStyle())
                     .padding()
                 
-                let text = String(viewModel.calculateRemainingBirthDates())
-                Text("remaining_string \(text)")
+                if !storeKitManager.hasPremiumAccess {
+                    let text = String(viewModel.calculateRemainingBirthDates())
+                    Text("remaining_string \(text)")
+                }
                 
                 Spacer()
                 

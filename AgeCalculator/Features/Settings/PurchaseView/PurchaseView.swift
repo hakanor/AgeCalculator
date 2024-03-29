@@ -16,7 +16,7 @@ enum PremiumFeatures: LocalizedStringKey, CaseIterable {
 struct PurchaseView: View {
     
     @StateObject var viewModel = PurchaseViewModel()
-    @StateObject var storeKit = StoreKitManager()
+    @EnvironmentObject var storeKitManager: StoreKitManager
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -60,8 +60,8 @@ struct PurchaseView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
 
-            ForEach(storeKit.storeProducts) { product in
-                StoreItem(storeKit: storeKit, product: product)
+            ForEach(storeKitManager.storeProducts) { product in
+                StoreItem(storeKit: storeKitManager, product: product)
                     .padding(.horizontal)
             }
             

@@ -11,6 +11,7 @@ import SwiftUI
 struct AgeCalculatorApp: App {
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     @State var languageSettings = LanguageSettings()
+    @StateObject var storeKitManager = StoreKitManager.shared
     
     var body: some Scene {
         WindowGroup {
@@ -18,6 +19,7 @@ struct AgeCalculatorApp: App {
                 .preferredColorScheme(userTheme.colorScheme)
                 .environment(languageSettings)
                 .environmentObject(ThemeColors.shared)
+                .environmentObject(storeKitManager)
                 .environment(\.locale, languageSettings.locale)
         }
     }

@@ -17,6 +17,7 @@
 "buyPremium_string" = "Buy Premium";
 "changeColor_string" = "Change Color";
 "premiumSettings_string" = "Premium Settings";
+"no_access_premium_string" = "You do not have access to premium features.";
 "changeButtonColor_string" = "Change Button Color";
 "toggleDarkMode_string" = "Toggle Dark Mode";
 "aboutApp_string" = "About App";
