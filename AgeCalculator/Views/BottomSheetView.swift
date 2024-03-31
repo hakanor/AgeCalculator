@@ -51,8 +51,8 @@ struct BottomSheetView: View {
             ScrollView {
                 ForEach(birthDateService.birthDates, id: \.self) { birthDate in
                     HStack {
-                        let nameString = birthDate.name
-                        let dateString = birthDate.birthDate.formatted()
+                        let nameString = birthDate.name  
+                        let dateString = viewModel.formatDate(date: birthDate.birthDate)
                         
                         Button(action: {
                             viewModel.setSelectedBirthDate(birthDateObject: birthDate)

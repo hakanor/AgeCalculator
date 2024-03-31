@@ -69,7 +69,6 @@ struct RetroView: View {
                                 .toggleStyle(SwitchToggleStyle(tint: .black))
                         }
                         .padding(.horizontal, 10)
-                        
                     case .settings(let string):
                         HStack {
                             var text = LocalizedStringKey(string)

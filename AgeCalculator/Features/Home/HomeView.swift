@@ -60,7 +60,7 @@ struct HomeView: View {
                         Spacer()
                     }
                     .padding()
-                }
+                }.navigationViewStyle(StackNavigationViewStyle())
             } else { // yatay
                 VStack() {
                     Spacer()

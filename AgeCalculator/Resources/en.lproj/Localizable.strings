@@ -21,7 +21,6 @@
 "changeButtonColor_string" = "Change Button Color";
 "toggleDarkMode_string" = "Toggle Dark Mode";
 "aboutApp_string" = "About App";
-"appVersion_string" = "App Version %@";
 
 // DetailView
 "daysUntil_string" = "Days until";

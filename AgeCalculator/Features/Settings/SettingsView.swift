@@ -23,6 +23,8 @@ struct SettingsView: View {
         _isDarkModeEnabled = State(initialValue: userTheme == .dark)
     }
     
+    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "N/A"
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -82,7 +84,7 @@ struct SettingsView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         Text("aboutApp_string")
                             .font(.headline)
-                        RetroView(type: .text("appVersion_string"), size: 15)
+                        RetroView(type: .text("Version: \(appVersion)"), size: 15)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
@@ -99,6 +101,7 @@ struct SettingsView: View {
                     .padding()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarTitle("settingsTitle_string")
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {

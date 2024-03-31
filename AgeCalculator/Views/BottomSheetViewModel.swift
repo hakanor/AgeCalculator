@@ -31,4 +31,10 @@ class BottomSheetViewModel: ObservableObject {
     func setSelectedBirthDate(birthDateObject: BirthDateObject) {
         birthDateService.setSelectedBirthDate(birthDateObject)
     }
+    
+    func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
+    }
 }

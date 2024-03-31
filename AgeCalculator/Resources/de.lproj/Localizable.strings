@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  AgeCalculator
+
+  Created by Hakan Or on 4.03.2024.
+  
+*/
+
+// HomeView
+"addDate_string" = "Neues Datum hinzufügen";
+"age_string" = "Alter:";
+
+// SettingsView
+"settingsTitle_string" = "Einstellungen";
+"generalSettings_string" = "Allgemeine Einstellungen";
+"changeLanguage_string" = "Sprache ändern";
+"buyPremium_string" = "Premium kaufen";
+"changeColor_string" = "Farbe ändern";
+"premiumSettings_string" = "Premium Einstellungen";
+"no_access_premium_string" = "Sie haben keinen Zugriff auf Premium-Funktionen.";
+"changeButtonColor_string" = "Schaltflächenfarbe ändern";
+"toggleDarkMode_string" = "Dunkelmodus umschalten";
+"aboutApp_string" = "Über die App";
+
+// DetailView
+"daysUntil_string" = "Tage bis";
+"toNextBirthday_string" = "bis zum nächsten Geburtstag";
+
+// BottomSheetView
+"remaining_string %@" = "Verbleibend: %@";
+
+// AddDateView
+"enterName_string" = "Geben Sie einen Namen für dieses Geburtsdatum ein";
+"add_string" = "Hinzufügen";
+
+// LanguageSettingsView
+"apply_string" = "Anwenden";
+
+"totalYears_string" = "Gesamte Jahre:";
+"totalMonths_string" = "Gesamte Monate:";
+"totalDays_string" = "Gesamte Tage:";
+"totalHours_string" = "Gesamte Stunden:";
+"totalMinutes_string" = "Gesamte Minuten:";
+"totalSeconds_string" = "Gesamte Sekunden:";
+
+// ColorSettingsView
+"red_string" = "Rot";
+"blue_string" = "Blau";
+"green_string" = "Grün";
+
+// PurchaseView
+"unlimited_age_track_string" = "Unbegrenzte Altersverfolgung";
+"unlock_button_colors_string" = "Anpassung der Schaltflächenfarbe";
+"unlock_dark_mode_string" = "Dunkelmodus freischalten";
+
+"premium_title_string" = "Age Calculator Pro";
+"premium_subtitle_string" = "Eine andere Möglichkeit, Ihr Alter zu berechnen.";
+"unlock_premium_string" = "Premium-Funktionen freischalten";
+"restore_purchases_string" = "Käufe wiederherstellen";
+
+// StoreItemView
+"buy_string" = "Kaufen";

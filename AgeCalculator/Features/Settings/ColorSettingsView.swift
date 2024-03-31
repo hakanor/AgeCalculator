@@ -29,9 +29,12 @@ struct ColorSettingsView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "arrow.counterclockwise")
-                        .foregroundStyle(Color("backgroundColor"))
+                        .foregroundStyle(.label)
                         .font(.system(size: 24, weight: .semibold))
                         .padding(.vertical, 5)
+                        .padding(.horizontal, 5)
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(10)
                 }
             }
             

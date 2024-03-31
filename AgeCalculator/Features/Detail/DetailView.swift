@@ -21,7 +21,8 @@ struct DetailView: View {
                             VStack(alignment: .leading, spacing: 16) {
                                 ForEach(viewModel.ageInfoDetail, id: \.self.0) { detail in
                                     HStack {
-                                        Text(detail.0)
+                                        let localizedString = LocalizedStringKey(detail.0)
+                                        Text(localizedString)
                                             .font(.system(size: 20, weight: .semibold, design: .monospaced))
                                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                         Spacer()

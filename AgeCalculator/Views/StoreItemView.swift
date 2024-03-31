@@ -33,7 +33,7 @@ struct StoreItem: View {
                         try await storeKit.purchase(product)
                     }
                 }) {
-                    RetroView(type: .text("Buy"), size: 12)
+                    RetroView(type: .text("buy_string"), size: 12)
                         .fixedSize()
                         
                 }

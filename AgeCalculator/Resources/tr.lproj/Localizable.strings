@@ -21,7 +21,6 @@
 "changeButtonColor_string" = "Buton Rengini Değiştir";
 "toggleDarkMode_string" = "Karanlık Mod";
 "aboutApp_string" = "Uygulama Hakkında";
-"appVersion_string" = "Uygulama Versiyonu: %@";
 
 // DetailView
 "daysUntil_string" = "Bir sonraki doğum gününe";

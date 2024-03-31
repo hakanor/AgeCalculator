@@ -35,11 +35,16 @@ class LanguageSettings {
         case .english:
             locale = Locale(identifier: SupportedLanguage.english.rawValue)
             UserDefaults.standard.set(SupportedLanguage.english.rawValue, forKey: LanguageConstants.languageKey.rawValue)
-            UserDefaults.standard.synchronize()
         case .turkish:
             locale = Locale(identifier: SupportedLanguage.turkish.rawValue)
             UserDefaults.standard.set(SupportedLanguage.turkish.rawValue, forKey: LanguageConstants.languageKey.rawValue)
-            UserDefaults.standard.synchronize()
+        case .spanish:
+            locale = Locale(identifier: SupportedLanguage.spanish.rawValue)
+            UserDefaults.standard.set(SupportedLanguage.spanish.rawValue, forKey: LanguageConstants.languageKey.rawValue)
+        case .german:
+            locale = Locale(identifier: SupportedLanguage.german.rawValue)
+            UserDefaults.standard.set(SupportedLanguage.german.rawValue, forKey: LanguageConstants.languageKey.rawValue)
         }
+        UserDefaults.standard.synchronize()
     }
 }

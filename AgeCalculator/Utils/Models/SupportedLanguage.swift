@@ -9,7 +9,9 @@ import Foundation
 
 enum SupportedLanguage: String, CaseIterable {
     case english = "en"
+    case german = "de"
     case turkish = "tr"
+    case spanish = "es"
     
     var description: String {
         switch self {
@@ -17,6 +19,10 @@ enum SupportedLanguage: String, CaseIterable {
             return "English"
         case .turkish:
             return "Turkish"
+        case .spanish:
+            return "Spanish"
+        case .german:
+            return "German"
         }
     }
 }

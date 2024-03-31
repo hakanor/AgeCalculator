@@ -70,7 +70,6 @@ class BirthDateService: ObservableObject {
         var birthDates = getBirthDates()
         
         birthDates = birthDates.sorted(by: { $0.date > $1.date })
-        let filteredBirthDateObjects = Array(birthDates.prefix(self.birthDateCount))
         
         if birthDates.count >= self.birthDateCount {
             birthDates.removeLast()
@@ -90,8 +89,7 @@ class BirthDateService: ObservableObject {
     }
     
     func getBirthDatesCount() -> Int {
-        var birthDates = getBirthDates()
-        return birthDates.count
+        return getBirthDates().count
     }
     
     func birthDateObjectToData(birthDateObjects: [BirthDateObject]) -> Data? {

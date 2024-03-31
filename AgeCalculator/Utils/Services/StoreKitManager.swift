@@ -119,9 +119,7 @@ class StoreKitManager : ObservableObject {
             
             //finally assign the purchased products
             self.purchasedProducts = purchasedProducts
-            print("purchasedProducts changed, storekitManager.hasPremiumAccess\(self.hasPremiumAccess)")
             self.hasPremiumAccess = updatePremiumAccess()
-            print("purchasedProducts updated, storekitManager.hasPremiumAccess\(self.hasPremiumAccess)")
         }
     }
     

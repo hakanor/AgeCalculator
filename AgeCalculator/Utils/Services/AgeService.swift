@@ -40,15 +40,10 @@ class AgeService {
         let minutes = calendar.dateComponents([.minute], from: lastBirthDate, to: now).minute ?? 0
         let seconds = calendar.dateComponents([.second], from: lastBirthDate, to: now).second ?? 0
         
-        let daysUntilNextBirthday = BirthDateService.shared.birthDates.reduce(Int.max) { result, birthDate in
-            let days = self.daysUntilNextBirthday(birthday: birthDate.birthDate)
-            return min(result, days)
-        }
-        
         guard let selectedBirthDate = BirthDateService.shared.selectedBirthDate?.birthDate else { return }
         let daysUntilNextBirthDay = self.daysUntilNextBirthday(birthday: selectedBirthDate)
         
-        self.ageInfo = AgeInfo(fractionalAge: "\(Double(seconds) / 31556926)", years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds, daysUntilNextBirthday: daysUntilNextBirthday)
+        self.ageInfo = AgeInfo(fractionalAge: "\(Double(seconds) / 31556926)", years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds, daysUntilNextBirthday: daysUntilNextBirthDay)
     }
     
     private func daysUntilNextBirthday(birthday: Date) -> Int {
@@ -57,14 +52,13 @@ class AgeService {
         
         var nextBirthdayComponents = calendar.dateComponents([.month, .day, .year], from: today)
         let birthComponents = calendar.dateComponents([.month, .day], from: birthday)
+        nextBirthdayComponents.month = birthComponents.month
+        nextBirthdayComponents.day = birthComponents.day
         
         if let nextBirthdayDate = calendar.date(from: nextBirthdayComponents),
            nextBirthdayDate <= today {
             nextBirthdayComponents.year = (nextBirthdayComponents.year ?? 0) + 1
         }
-        
-        nextBirthdayComponents.month = birthComponents.month
-        nextBirthdayComponents.day = birthComponents.day
         
         guard let nextBirthdayDate = calendar.date(from: nextBirthdayComponents) else {
             return 0
