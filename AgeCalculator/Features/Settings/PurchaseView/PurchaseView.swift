@@ -21,7 +21,6 @@ struct PurchaseView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Spacer()
             
             RetroView(type: .text(viewModel.randomNumbers))
                 .padding()
@@ -54,9 +53,8 @@ struct PurchaseView: View {
                 }
                 .padding()
             }
-            Spacer()
             Text("unlock_premium_string")
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
 

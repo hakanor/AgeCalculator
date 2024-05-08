@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A7053F3B2B96403300A8910B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7053F3D2B96403300A8910B /* Localizable.strings */; };
 		A714DBA22B8236A400CB4557 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A714DBA12B8236A400CB4557 /* UIColor+HexString.swift */; };
+		A721FC172BEABED0006C9A07 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A721FC162BEABED0006C9A07 /* StoreKit.framework */; };
 		A75867AC2B752606009A3F6B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75867AB2B752606009A3F6B /* BottomSheetView.swift */; };
 		A75867AE2B754F26009A3F6B /* BirthDateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75867AD2B754F26009A3F6B /* BirthDateService.swift */; };
 		A794D6722B74217A0025B598 /* String+GroupDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794D6712B74217A0025B598 /* String+GroupDigits.swift */; };
@@ -66,6 +67,7 @@
 		A7053F3C2B96403300A8910B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A7053F3E2B96403500A8910B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A714DBA12B8236A400CB4557 /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
+		A721FC162BEABED0006C9A07 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A75867AB2B752606009A3F6B /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A75867AD2B754F26009A3F6B /* BirthDateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateService.swift; sourceTree = "<group>"; };
 		A794D6712B74217A0025B598 /* String+GroupDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GroupDigits.swift"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A721FC172BEABED0006C9A07 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +136,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A721FC152BEABED0006C9A07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A721FC162BEABED0006C9A07 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A794D6702B7421680025B598 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +272,7 @@
 				A7EFE44B2B5D869B00D13B53 /* AgeCalculatorTests */,
 				A7EFE4552B5D869B00D13B53 /* AgeCalculatorUITests */,
 				A7EFE4392B5D869A00D13B53 /* Products */,
+				A721FC152BEABED0006C9A07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -654,11 +666,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"AgeCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = RZB5WTQ7UH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -669,8 +682,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ageCalculator;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hakanor.ageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -688,11 +701,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"AgeCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = RZB5WTQ7UH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -703,8 +717,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ageCalculator;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hakanor.ageCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

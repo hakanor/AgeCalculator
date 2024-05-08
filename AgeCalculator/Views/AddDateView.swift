@@ -24,17 +24,16 @@ struct AddDateView: View {
 
             RetroView(type: .textField($name, "enterName_string"))
                 .fixedSize(horizontal: false, vertical: true)
-                .padding(24)
-            
+                .padding()
             Button(action: {
                 viewModel.addBirthDate(name: name, selectedDate: selectedDate)
                 isPresented = false
             }, label: {
                 RetroView(type: .text("add_string"),size: 20)
                     .fixedSize()
+                    .padding()
             })
             .buttonStyle(RetroButtonStyle())
-            .padding()
         }.onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }

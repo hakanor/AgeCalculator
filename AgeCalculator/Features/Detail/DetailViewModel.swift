@@ -40,8 +40,8 @@ class DetailViewModel: ObservableObject {
         let ageInfoDetail: [(String, String)] = [
             ("totalYears_string", "\(ageInfo.years)"),
             ("totalMonths_string", "\(ageInfo.months)"),
-            ("totalDays_string", "\(ageInfo.hours)"),
-            ("totalHours_string", "\(ageInfo.minutes)"),
+            ("totalDays_string", "\(ageInfo.days)"),
+            ("totalHours_string", "\(ageInfo.hours)"),
             ("totalMinutes_string", "\(ageInfo.minutes)"),
             ("totalSeconds_string", "\(ageInfo.seconds)"),
         ]

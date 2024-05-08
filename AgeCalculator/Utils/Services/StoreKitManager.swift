@@ -48,7 +48,7 @@ class StoreKitManager : ObservableObject {
     }
     
     func updatePremiumAccess() -> Bool {
-        return purchasedProducts.contains { $0.id == "com.temporary.premium" }
+        return purchasedProducts.contains { $0.id == "com.agecalculator.premium" }
     }
 
     //listen for transactions - start this early in the app

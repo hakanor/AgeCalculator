@@ -10,17 +10,12 @@
       "internalID" : "0D112807",
       "localizations" : [
         {
-          "description" : "",
+          "description" : "Unlock unlimited premium access.",
           "displayName" : "Premium (Lifetime)",
           "locale" : "en_US"
-        },
-        {
-          "description" : "",
-          "displayName" : "Premium (Sınırsız)",
-          "locale" : "tr"
         }
       ],
-      "productID" : "com.temporary.premium",
+      "productID" : "com.agecalculator.premium",
       "referenceName" : "Premium",
       "type" : "NonConsumable"
     }
